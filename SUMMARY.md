@@ -21,5 +21,4 @@
   * [About Habits](readings/habits.md)
   * [Quotes](readings/quotes.md)
   * [About psychology](readings/about-psychology.md)
-* [Contact](https://linktr.ee/wilmerags)
 
