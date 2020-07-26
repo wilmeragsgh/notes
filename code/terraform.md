@@ -1,6 +1,5 @@
 ---
 description: Frequently used terraform snippets
-
 ---
 
 # Terraform
@@ -130,3 +129,4 @@ resource "aws_security_group" "ssh_group" {
 - [Terraform up and running (local book)](/media/w/6529BB496A1EC696/Yevgeniy Brikman - Terraform  Up and Running (Early Release)-O'Reilly Media (2017).pdf)
 - https://learn.hashicorp.com/terraform/getting-started/build
 - http://blog.shippable.com/setup-a-container-cluster-on-aws-with-terraform-part-2-provision-a-cluster
+- https://towardsdatascience.com/seamlessly-integrated-deep-learning-environment-with-terraform-google-cloud-gitlab-and-docker-faee4b351e94

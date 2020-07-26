@@ -136,4 +136,5 @@ unzip target_file.zip
 ## References
 
 * [https://dev.to/thiht/shell-scripts-matter](https://dev.to/thiht/shell-scripts-matter)
+* [Awesome shell](https://github.com/alebcay/awesome-shell)
 

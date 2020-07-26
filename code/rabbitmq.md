@@ -1,7 +1,5 @@
 ---
-description: Frequently used code for rabbit mq related code snippets
-
-
+description: Frequently used code for rabbitmq related code snippets
 ---
 
 # RabbitMQ

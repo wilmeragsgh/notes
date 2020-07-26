@@ -9,7 +9,9 @@ description: Frequently used code for airflow related code snippets
 
 - By using *DockerOperators*/*KubernetesOperators* only we can avoid the technical debt that would existing by using different operators, and the dependency on Airflow development of operators([more on this](https://medium.com/bluecore-engineering/were-all-using-airflow-wrong-and-how-to-fix-it-a56f14cb0753)).
 
-## How-to
+## Recipes
+
+
 
 ### Setup a cluster
 
@@ -34,7 +36,7 @@ description: Frequently used code for airflow related code snippets
 
 - Scale workers vertically by providing higher values to `celeryd_concurrency`
 
-## Links
+## References
 
 - http://site.clairvoyantsoft.com/setting-apache-airflow-cluster/
 - https://github.com/jghoman/awesome-apache-airflow
