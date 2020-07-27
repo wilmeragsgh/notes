@@ -208,7 +208,9 @@ with open('file.pkl', 'rb') as f:
 ## References
 
 * [https://google.github.io/styleguide/pyguide.html](https://google.github.io/styleguide/pyguide.html)
+* https://github.com/PyCQA/pycodestyle
+* https://docs.pytest.org/en/latest/
+* https://realpython.com/documenting-python-code/
 * [The Python Graph Gallery – Visualizing data – with Python](https://python-graph-gallery.com)
 * [Awesome distributed deep learning](https://github.com/bharathgs/Awesome-Distributed-Deep-Learning)
-* https://realpython.com/documenting-python-code/
 
