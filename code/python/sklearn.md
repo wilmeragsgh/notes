@@ -25,6 +25,50 @@ X, y = np.arange(10).reshape((5, 2)), range(5)
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=42)
 ```
 
+**Gini calculation**
+
+```python
+import numpy as np
+from sklearn import metrics
+fpr, tpr, thresholds = metrics.roc_curve(label, score, pos_label=1)
+2 * metrics.auc(fpr, tpr) - 1
+```
+
+**KS statistics**
+
+```python
+from scipy.stats import ks_2samp 
+ks_2samp(dt[dt['label']== 0]['score'],dt[dt['label']== 1]['score']) # classes 0, 1
+```
+
+**Filtering best f1 model**
+
+```python
+import pandas as pd
+y_pred = model.predict_proba(X_test)
+y_score = [y[1] for y in y_pred]
+
+model_performance = pd.DataFrame({"accuracy":[],"precision":[],"recall":[],"f1":[],"cut":[]})
+for x in range(0,100):
+    pred = [1 if y > (x*0.01) else 0 for y in y_score]
+    acc = (y_test == pred).mean()
+    prec = sum(np.multiply(y_test,pred)) / (sum( np.multiply([ 1 - pr for pr in y_test], pred)) + sum(np.multiply(y_test,pred)))
+    reca = sum(np.multiply(y_test,pred)) / (sum( np.multiply([ 1 - pr for pr in pred], y_test)) + sum(np.multiply(y_test,pred)))
+    f_1 = 2 * prec * reca/ (prec + reca)
+    model_performance = model_performance.append({
+        "accuracy": acc,
+        "precision": prec,
+        "recall": reca,
+        "f1": f_1,
+        "cut": x
+    }, ignore_index=True)
+model_performance
+
+model_performance.iloc[model_performance['f1'].idxmax()]
+```
+
+
+
 **Random search of parameters**
 
 ```python
