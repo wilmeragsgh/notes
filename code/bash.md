@@ -32,6 +32,24 @@ lsof -i :8000 # by port
 sudo ufw allow [PORT]
 ```
 
+**If statements**
+
+```bash
+if [ -z STRING]
+then
+fi
+```
+
+**If with multiple conditions and checking lenght == 0**
+
+```bash
+if [ -z $VAR1 ] || [ -z $VAR2]; then
+# code
+fi
+```
+
+
+
 **Kill processes**
 
 ```bash
