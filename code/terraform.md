@@ -12,7 +12,7 @@ Start terraform config: `terraform init`
 
 Give format to files within direcoty `terrafom fmt`
 
-
+Execute terraform `terraform apply --auto-approve`
 
 ## Frecuently used AMI IDs
 
@@ -85,6 +85,67 @@ output "public_ip" {
     value = "Created instance (public_dns):  ${aws_instance.example.public_dns}"
 }
 ```
+
+**Create and attach ebs storage**
+
+aws_ebs_volume and aws_instance ideally belong to the same availability_zone
+
+```terraform
+resource "aws_volume_attachment" "ebs_att" {
+  device_name = "/dev/sdh"
+  volume_id   = "${aws_ebs_volume.example.id}"
+  instance_id = "${aws_instance.web.id}"
+}
+
+resource "aws_instance" "web" {
+  ami               = "ami-21f78e11"
+  availability_zone = "us-west-2a"
+  instance_type     = "t1.micro"
+
+  tags = {
+    Name = "HelloWorld"
+  }
+}
+
+resource "aws_ebs_volume" "example" {
+  availability_zone = "us-west-2a"
+  size              = 1
+}
+```
+
+**Define storage from ec2 creation**
+
+```terraform
+variable "EC2_ROOT_VOLUME_SIZE" {
+  type    = "string"
+  default = "30"
+  description = "The volume size for the root volume in GiB"
+}
+variable "EC2_ROOT_VOLUME_TYPE" {
+  type    = "string"
+  default = "gp2"
+  description = "The type of data storage: standard, gp2, io1"
+}
+variable "EC2_ROOT_VOLUME_DELETE_ON_TERMINATION" {
+  default = true
+  description = "Delete the root volume on instance termination."
+}
+
+# then
+
+resource "aws_instance" "example" {
+  ami           = "${var.AMI_ID}"
+  instance_type = "${var.EC2_INSTANCE_SIZE}"
+  
+  root_block_device {
+    volume_size           = "${var.EC2_ROOT_VOLUME_SIZE}"
+    volume_type           = "${var.EC2_ROOT_VOLUME_TYPE}"
+    delete_on_termination = "${var.EC2_ROOT_VOLUME_DELETE_ON_TERMINATION}"
+  }
+}
+```
+
+
 
 **Create a security group and use it afterwards (Allow income from 8080)**
 
