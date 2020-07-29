@@ -59,6 +59,24 @@ Todo:
 
 
 
+**Example function Docstring**
+
+```python
+"""Connects to the next available port.
+
+    Args:
+      minimum: A port value greater or equal to 1024.
+
+    Returns:
+      The new minimum port.
+
+    Raises:
+      ConnectionError: If no available port is found.
+"""
+```
+
+
+
 **virtualenv**
 
 ```bash
