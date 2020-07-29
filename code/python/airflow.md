@@ -96,7 +96,7 @@ airflow scheduler
 
 - http://site.clairvoyantsoft.com/setting-apache-airflow-cluster/
 - https://github.com/jghoman/awesome-apache-airflow
-- https://tech.scribd.com/blog/2020/breaking-up-the-dag-repo.html
+- https://tech.scribd.com/blog/2020/breaking-up-the-dag-repo.html **
 - https://azure.microsoft.com/sv-se/blog/deploying-apache-airflow-in-azure-to-build-and-run-data-pipelines/
 - https://gtoonstra.github.io/etl-with-airflow/
 - https://medium.com/databand-ai/improving-performance-of-apache-airflow-scheduler-507f4cb6462a
@@ -107,3 +107,5 @@ airflow scheduler
 - https://www.statworx.com/de/blog/a-framework-to-automate-your-work-how-to-set-up-airflow/
 - [Installing Airflow with CeleryExcuter, using PostgreSQL as metadata database and Redis for Celery message broker · GitHub](https://gist.github.com/zacgca/9e0401aa205e7c54cbae0e85afca479d)
 - [Apache Airflow Installation on Ubuntu – taufiq ibrahim – Medium](https://medium.com/@taufiq_ibrahim/apache-airflow-installation-on-ubuntu-ddc087482c14)
+- https://www.astronomer.io/guides/airflow-executors-explained/
+- https://www.astronomer.io/guides/dynamically-generating-dags/
