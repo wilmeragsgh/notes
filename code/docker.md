@@ -15,13 +15,22 @@ description: Useful concepts and snippets for using Docker
 
 ## Recipes
 
-**Installing**
+**Installing Docker**
 
 ```bash
 sudo apt-get update
 curl -sSL https://get.docker.com/ | sh
 sudo usermod -aG docker $USER
 sudo service docker start
+```
+
+**Installing Docker-compose**
+
+```bash
+sudo curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+docker-compose --version
 ```
 
 **Dockerfile With python venv's**
@@ -45,10 +54,20 @@ CMD ["python", "myapp.py"]
 **Remove all exited containers:**
 `docker rm $(docker ps -a -f status=exited -q)`
 
+**Building docker images**: 
+
+- https://codefresh.io/docker-tutorial/build-docker-image-dockerfiles/
+
+**Activate the execution of a DAG**
+
+`airflow unpause dag_id`
+
 **Remove all images**
 `docker rmi $(docker images -a -q)`
 
+**Building local image into docker-compose**: 
 
+- https://stackoverflow.com/questions/46032392/docker-compose-does-not-allow-to-use-local-images
 
 **Resources**
 
