@@ -183,6 +183,20 @@ resource "aws_security_group" "ssh_group" {
 # in the aws_instance
 ```
 
+**Stoping/Starting instances with AWS CLI**
+
+```bash
+aws ec2 stop-instances --region us-east-2 --instance-ids i-0123456789abcdef
+
+aws ec2 start-instances --region us-east-2 --instance-ids i-0123456789abcdef
+
+#If you need to fetch the instance ID quickly, you can define a TF output and get at it that way:
+terraform output id
+#    i-0123456789abcdef
+```
+
+
+
 
 
 ## References
