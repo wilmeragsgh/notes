@@ -58,10 +58,6 @@ CMD ["python", "myapp.py"]
 
 - https://codefresh.io/docker-tutorial/build-docker-image-dockerfiles/
 
-**Activate the execution of a DAG**
-
-`airflow unpause dag_id`
-
 **Remove all images**
 `docker rmi $(docker images -a -q)`
 
