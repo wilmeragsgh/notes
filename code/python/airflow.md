@@ -11,6 +11,10 @@ description: Frequently used code for airflow related code snippets
 
 ## Recipes
 
+**Activate the execution of a DAG**
+
+`airflow unpause dag_id`
+
 **Setting it up in Amazon linux AMI**
 
 ```bash
