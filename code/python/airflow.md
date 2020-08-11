@@ -71,6 +71,10 @@ airflow webserver
 airflow scheduler 
 ```
 
+**Triggering dags from python client**
+
+- https://stackoverflow.com/questions/60055151/how-to-trigger-an-airflow-dag-run-from-within-a-python-script
+
 
 
 ### Setup a cluster
