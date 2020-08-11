@@ -8,7 +8,7 @@ description: Frequently used code for rabbitmq related code snippets
 
 ## Recipes
 
-**Docker usage**
+**Docker-compose usage**
 
 When using a Docker image like the following:
 
@@ -44,4 +44,5 @@ connection = pika.BlockingConnection(conn_params)
 - https://codeburst.io/get-started-with-rabbitmq-on-docker-4428d7f6e46b
 - http://site.clairvoyantsoft.com/installing-rabbitmq/
 - https://www.rabbitmq.com/tutorials/tutorial-one-python.html
+- https://groups.google.com/forum/#!topic/rabbitmq-users/OVrBuAme9VI
 
