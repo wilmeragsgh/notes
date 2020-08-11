@@ -223,6 +223,15 @@ with open('file.pkl', 'rb') as f:
     data = pickle.load(f)
 ```
 
+**Check if file exist**
+
+```python
+import os
+os.path.exists(path)
+```
+
+
+
 ## References
 
 * [https://google.github.io/styleguide/pyguide.html](https://google.github.io/styleguide/pyguide.html)
