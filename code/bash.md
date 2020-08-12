@@ -14,7 +14,7 @@ last | head
 
 ```bash
 while :; 
-do nmap vpc-phishiq-es-gluq3jekytvcpv3xvesee65b7e.us-east-2.es.amazonaws.com -p443,9200,80,22 -Pn --max-rtt-timeout 60ms  ;
+do nmap <addres> -p443,9200,80,22 -Pn --max-rtt-timeout 60ms  ;
 sleep 1 ; done
 ```
 
