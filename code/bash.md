@@ -99,6 +99,10 @@ curl --header "Content-Type: application/json" \
   http://localhost:3000/api/login
 ```
 
+**Delete history entry**
+
+`history -d <line_number>`
+
 ## tmux
 
 **Create a new session**
