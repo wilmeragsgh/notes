@@ -61,6 +61,14 @@ CMD ["python", "myapp.py"]
 **Remove all images**
 `docker rmi $(docker images -a -q)`
 
+**Remove dangling images**
+
+`docker image prune`
+
+**Remove dangling volume**
+
+`docker volume prune`
+
 **Building local image into docker-compose**: 
 
 - https://stackoverflow.com/questions/46032392/docker-compose-does-not-allow-to-use-local-images
