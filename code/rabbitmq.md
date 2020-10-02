@@ -31,8 +31,28 @@ The host name for the service from other container would be `rabbitmq-server` an
 ```python
 import pika
 credentials = pika.PlainCredentials('test','test')
-conn_params = pika.ConnectionParameters('rabbitmq-server', 5672, '/', credentials)
+conn_params = pika.ConnectionParameters('rabbitmq', 5672, '/', credentials)
 connection = pika.BlockingConnection(conn_params)
+# publish
+try:
+    channel = connection.channel()
+    channel.exchange_declare(exchange="name", exchange_type="fanout")
+    channel.basic_publish(
+        exchange="name", routing_key="", body=payload_json
+    )
+finally:
+    connection.close()
+# many consumer 
+connection = pika.BlockingConnection(conn_params)
+channel = connection.channel()
+channel.exchange_declare(exchange="name", exchange_type="fanout")
+result = channel.queue_declare(queue="", exclusive=True)
+queue_name = result.method.queue
+channel.queue_bind(exchange="name", queue=queue_name)
+channel.basic_consume(
+    queue=queue_name, on_message_callback=callback, auto_ack=False
+)
+channel.start_consuming()
 ```
 
 
