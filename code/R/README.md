@@ -19,6 +19,10 @@ sudo apt update
 sudo apt install r-base
 ```
 
+**Installing Rstudio**
+
+https://rstudio.com/products/rstudio/download/#download
+
 ## Resources
 
 - [All graphs – The R Graph Gallery](https://www.r-graph-gallery.com/all-graphs/)
