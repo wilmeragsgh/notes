@@ -155,6 +155,26 @@ sudo apt install unzip #(ubuntu)
 unzip target_file.zip
 ```
 
+## Text processing
+
+**Get specific line from file**
+
+```bash
+sed -n LINEp target_file
+```
+
+> awk > sed for big files
+
+**Substitute char in big file**
+
+```bash
+aws '{gsub(/old/,"NEW"); print}' in_file > out_file
+```
+
+> Might require LC_ALL=C at the beginning depending on in_file encoding
+
+
+
 ## References
 
 * [https://dev.to/thiht/shell-scripts-matter](https://dev.to/thiht/shell-scripts-matter)
