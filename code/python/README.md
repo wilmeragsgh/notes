@@ -82,6 +82,8 @@ Todo:
 ```bash
 # installing
 pip install virtualenv
+# installing with specific python version
+python3.8 -m pip install beautifulsoup4
 # creating
 virtualenv env_name --python=python3.6 # by default it'd be python2.7
 # activate
