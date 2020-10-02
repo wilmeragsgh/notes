@@ -4,7 +4,17 @@ description: Frecuently used code for keras
 
 # Keras
 
+### General procedure
+
+1. Create
+2. Compile
+3. Fit/Train
+4. Evaluate/Test
+
+
+
 **Save model**
+
 ```python
 model_json = model.to_json()
 with open("model.json", "w") as json_file:
