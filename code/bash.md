@@ -62,12 +62,18 @@ kill -9 PID
 grep -Hrn 'search term' path/to/files
 ```
 
-**Remove character in-place with sed**
+**Remove character in-place**
 
 ```bash
 sed -i 's/past/future/g' file.txt
 ```
 
+**Remove a specific line from file**
+
+```bash
+sed -i 'Ld' file.txt
+# L is the linenumber to delete
+```
 **Add character to the beginning of the file**
 
 ```bash
