@@ -179,6 +179,12 @@ aws '{gsub(/old/,"NEW"); print}' in_file > out_file
 
 > Might require LC_ALL=C at the beginning depending on in_file encoding
 
+**Get content between START and END pattern**
+
+```bash
+sed -n '/^CREATE TABLE/,/GO/p'
+```
+
 
 
 ## References
