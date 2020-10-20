@@ -62,12 +62,18 @@ kill -9 PID
 grep -Hrn 'search term' path/to/files
 ```
 
-**Remove character in-place with sed**
+**Remove character in-place**
 
 ```bash
 sed -i 's/past/future/g' file.txt
 ```
 
+**Remove a specific line from file**
+
+```bash
+sed -i 'Ld' file.txt
+# L is the linenumber to delete
+```
 **Add character to the beginning of the file**
 
 ```bash
@@ -154,6 +160,32 @@ tmux splitw -h -p 50 -t sessionName:1.0
 sudo apt install unzip #(ubuntu)
 unzip target_file.zip
 ```
+
+## Text processing
+
+**Get specific line from file**
+
+```bash
+sed -n LINEp target_file
+```
+
+> awk > sed for big files
+
+**Substitute char in big file**
+
+```bash
+aws '{gsub(/old/,"NEW"); print}' in_file > out_file
+```
+
+> Might require LC_ALL=C at the beginning depending on in_file encoding
+
+**Get content between START and END pattern**
+
+```bash
+sed -n '/^CREATE TABLE/,/GO/p'
+```
+
+
 
 ## References
 

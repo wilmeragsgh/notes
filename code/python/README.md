@@ -82,6 +82,8 @@ Todo:
 ```bash
 # installing
 pip install virtualenv
+# installing with specific python version
+python3.8 -m pip install beautifulsoup4
 # creating
 virtualenv env_name --python=python3.6 # by default it'd be python2.7
 # activate
@@ -91,6 +93,19 @@ deactivate
 # saving
 pip freeze > requirements.txt
 ```
+
+**poetry**
+
+[Docs](https://python-poetry.org/docs/)
+
+```bash
+# Init project
+poetry init
+# create poetry.lock
+poetry install
+```
+
+
 
 **Creating directory if it doesn't exist**
 
@@ -228,6 +243,19 @@ with open('file.pkl', 'rb') as f:
 ```python
 import os
 os.path.exists(path)
+```
+
+**Download file**
+
+```python
+import urllib.request
+urllib.request.urlretrieve(url, file_name)
+```
+
+**Generate a set from a list of list**
+
+```python
+set(elem for elem_of_list_of_list in list_of_list for elem in elem_of_list_of_list)
 ```
 
 
