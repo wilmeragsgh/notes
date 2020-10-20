@@ -169,3 +169,17 @@ git push -u origin --tags
 folderA/ # would remove folderA anywhere in the repo
 ```
 
+**Remove a file to not check its update going forward**
+
+```bash
+git update-index --assume-unchanged .dvc/config
+# git update-index --no-assume-unchanged # (reverse)
+```
+
+> More info on this [stackoverflow](https://stackoverflow.com/questions/3319479/can-i-git-commit-a-file-and-ignore-its-content-changes)
+
+
+
+## References
+
+- https://chris.beams.io/posts/git-commit/
