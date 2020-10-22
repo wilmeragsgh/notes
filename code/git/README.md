@@ -169,3 +169,28 @@ git push -u origin --tags
 folderA/ # would remove folderA anywhere in the repo
 ```
 
+**Fix undesired push files**
+
+```bash
+git reset --soft HEAD~8
+git reset .
+git add (all the files you want to commit, excluding the secrets this time)
+git commit -m "My new comment that encompasses the last 8 commits"
+git push -f
+```
+
+1. Replace the example commit `04833737604b1bf98ed65cf940eb79ff069771ff` with the commit you want to revert to. This should be the commit right before you committed the secrets. This will revert all the commits up to the commit you specified, while keeping all your changes staged in local
+2. Unstages all the changes you just reset
+3. Add the files you want to the commit
+4. Commit your changes
+5. Force your new local repo changes to overwrite the remote repo, effectively getting rid of the secrets you accidentally committed
+
+
+
+**Commit specific changes of a file**
+
+```bash
+git add -p FILE
+# then select s for the wanted changes and n/q to skip or quit the process
+```
+
