@@ -186,11 +186,24 @@ git push -f
 5. Force your new local repo changes to overwrite the remote repo, effectively getting rid of the secrets you accidentally committed
 
 
-
 **Commit specific changes of a file**
 
 ```bash
 git add -p FILE
 # then select s for the wanted changes and n/q to skip or quit the process
 ```
+
+**Remove a file to not check its update going forward**
+
+```bash
+git update-index --assume-unchanged .dvc/config
+# git update-index --no-assume-unchanged # (reverse)
+```
+
+> More info on this [stackoverflow](https://stackoverflow.com/questions/3319479/can-i-git-commit-a-file-and-ignore-its-content-changes)
+
+
+## References
+
+- https://chris.beams.io/posts/git-commit/
 
