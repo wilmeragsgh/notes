@@ -25,3 +25,10 @@ import requests
 requests.get("URL",headers={"Authorization":"Bearer %s" % token})
 ```
 
+## Other utils
+
+### References
+
+https://devhints.io/httpie
+
+https://testdriven.io/blog/asynchronous-tasks-with-falcon-and-celery/
