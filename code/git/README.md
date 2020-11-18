@@ -18,6 +18,17 @@ description: Frequently used git snippets
 
 `git log`
 
+**Adding empty folder to git**
+
+Create a `.gitignore` at the root of such folder and place the following content there:
+
+```bash
+# Ignore everything in this directory
+*
+# Except this file
+!.gitignore
+```
+
 **Situations**
 
 When going from develop to master tagged with release number
