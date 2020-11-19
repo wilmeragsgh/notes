@@ -22,4 +22,5 @@
   * [About Habits](readings/habits.md)
   * [Quotes](readings/quotes.md)
   * [About psychology](readings/about-psychology.md)
+* [Linux](linux/README.md)
 
