@@ -80,6 +80,12 @@ sed -i 'Ld' file.txt
 sed -i '1s/^/future/' file.txt
 ```
 
+**Remove first line from file**
+
+```bash
+tail -n +2 FILE
+```
+
 **Create sudo user**
 
 ```bash
