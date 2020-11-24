@@ -19,6 +19,9 @@ sudo apt update
 sudo apt install r-base
 ```
 
+**Lint tool**
+- [lintr](https://github.com/jimhester/lintr)
+
 **Installing Rstudio**
 
 https://rstudio.com/products/rstudio/download/#download
