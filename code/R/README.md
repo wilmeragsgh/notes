@@ -26,4 +26,4 @@ https://rstudio.com/products/rstudio/download/#download
 ## Resources
 
 - [All graphs – The R Graph Gallery](https://www.r-graph-gallery.com/all-graphs/)
-
+- https://google.github.io/styleguide/Rguide.html
