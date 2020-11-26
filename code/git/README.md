@@ -113,38 +113,38 @@ git push origin -f
 
 I think other answers here are wrong, because this is a question of moving the mistakenly committed files back to the staging area from the previous commit, without cancelling the changes done to them. This can be done like Paritosh Singh suggested:
 
-```text
+```bash
 git reset --soft HEAD^
 ```
 
 or
 
-```text
+```bash
 git reset --soft HEAD~1
 ```
 
 Then reset the unwanted files in order to leave them out from the commit:
 
-```text
+```bash
 git reset HEAD path/to/unwanted_file
 ```
 
 Now commit again, you can even re-use the same commit message:
 
-```text
+```bash
 git commit -c ORIG_HEAD
 ```
 
 **Git global setup**
 
-```text
+```bash
 git config --global user.name "NAME"
 git config --global user.email "EMAIL"
 ```
 
 **Create a new repository**
 
-```text
+```bash
 git clone repo_address
 cd repo_name
 touch README.md
@@ -155,7 +155,7 @@ git push -u origin master
 
 **Push an existing folder**
 
-```text
+```bash
 cd existing_folder
 git init
 git remote add origin repo_address
@@ -166,7 +166,7 @@ git push -u origin master
 
 **Push an existing Git repository**
 
-```text
+```bash
 cd existing_repo
 git remote rename origin old-origin
 git remote add origin repo_address
