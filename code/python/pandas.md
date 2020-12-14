@@ -230,6 +230,14 @@ df.to_csv('filename.csv',index=False)
 df['date'] = df['created'] + pd.to_timedelta(7, unit='d')
 ```
 
+**Replace character in column**
+
+```python
+df["column"] = df["column"].str.replace('foo', 'bar')
+```
+
+
+
 ## References
 
 * [PDF version](https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf)
