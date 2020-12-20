@@ -7,7 +7,12 @@ description: Thoughts and snippets related to Linux
 
 Here there are going to be some Snippets from my experience with Linux as apps, practices and getting started steps I might use across Linux installations.
 
+## Distros
 
+- Elementary
+- Xubuntu
+- Arch
+- Ubuntu
 
 ## Apps
 
@@ -57,3 +62,39 @@ sudo apt-get install typora
 **vscode**
 
 https://go.microsoft.com/fwlink/?LinkID=760868
+
+
+
+### Others
+
+- chrome
+
+- authy
+
+- bitwarden
+
+- calibre
+
+- keybase
+
+- kite
+
+- compass
+
+- notejot
+
+- Rstudio
+
+- Postman
+
+- R
+
+- Docker
+
+- shutdown scheduler
+
+- torrential
+
+- xournal
+
+- zoom
