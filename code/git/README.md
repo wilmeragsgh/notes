@@ -201,7 +201,7 @@ git push -f
 
 ```bash
 git add -p FILE
-# then select s for the wanted changes and n/q to skip or quit the process
+# then select y for the wanted changes, s to split a chunk of code and n/q to skip or quit the process
 ```
 
 **Remove a file to not check its update going forward**
