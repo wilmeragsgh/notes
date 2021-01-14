@@ -68,33 +68,20 @@ https://go.microsoft.com/fwlink/?LinkID=760868
 ### Others
 
 - chrome
-
 - authy
-
-- bitwarden
-
+- [bitwarden](https://bitwarden.com/download/)
 - calibre
-
 - keybase
-
-- kite
-
+- [kite](https://www.kite.com/download/)
 - compass
-
 - notejot
-
 - Rstudio
-
 - Postman
-
 - R
-
-- Docker
-
+- [Docker](code/docker.md)
 - shutdown scheduler
-
 - torrential
-
+- [terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli)
+- [aws-cli](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html)
 - xournal
-
-- zoom
+- [zoom](https://zoom.us/download?os=linux)
