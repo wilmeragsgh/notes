@@ -258,6 +258,12 @@ urllib.request.urlretrieve(url, file_name)
 set(elem for elem_of_list_of_list in list_of_list for elem in elem_of_list_of_list)
 ```
 
+**Get intersection from to lists**
+
+```python
+list(set(lista).intersection(listb))
+```
+
 
 
 ## References
