@@ -68,6 +68,19 @@ merged_model.fit([x1, x2], y=y, batch_size=384, epochs=200,
 callbacks=[early_stopping, checkpoint])
 ```
 
+**To subset a slice from an input layer**
+
+```python
+from keras.layers import Input, Lambda
+
+X = Input(shape=(Tx, n_values))
+Lambda(lambda x: x[:, t, :])(X)
+```
+
+
+
+
+
 ## References
 
 - [Keras Transfer Learning For Beginners – Towards Data Science](https://towardsdatascience.com/keras-transfer-learning-for-beginners-6c9b8b7143e)
