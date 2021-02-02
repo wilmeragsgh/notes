@@ -85,3 +85,12 @@ https://go.microsoft.com/fwlink/?LinkID=760868
 - [aws-cli](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html)
 - xournal
 - [zoom](https://zoom.us/download?os=linux)
+
+
+
+### Web tools
+
+[outline](https://www.getoutline.com/)
+
+https://n8n.io/
+
