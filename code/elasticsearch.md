@@ -32,6 +32,13 @@ http GET HOST:PORT/_alias/{alias-name}
 http DELETE HOST:PORT/{index-name}
 ```
 
+**Example of search**
+
+```bash
+# using httpie
+http elasticsearch2:9200/ascendsport-en/_search?_source="question,_id,answer" Content-Type:application/json query:='{"match": {"question": "what is telegram"}}'
+```
+
 
 
 ## References
