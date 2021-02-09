@@ -23,3 +23,15 @@ description: Tools for interacting with the web
 
 - https://i1.wp.com/www.tatvic.com/blog/wp-content/uploads/2016/12/Pic_2.png
 - [Data Viz Project](https://datavizproject.com/#)
+
+**Analytics**
+
+- https://cube.dev/
+
+
+
+## Personal
+
+- https://www.monicahq.com/
+- https://pmarsceill.github.io/just-the-docs/
+
