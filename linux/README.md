@@ -95,3 +95,15 @@ https://go.microsoft.com/fwlink/?LinkID=760868
 https://n8n.io/
 
 https://strapi.io/
+
+
+
+## Commands
+
+**Add/Remove ppa**
+
+```bash
+sudo add-apt-repository ppa:name/here
+# --remove flag for removing
+```
+
