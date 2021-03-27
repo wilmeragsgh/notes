@@ -19,4 +19,5 @@ description: Git flow pattern practices
 
 * Learning DevOps by Mikael Krief.
 * Nvie [(pdf)](https://nvie.com/files/Git-branching-model.pdf)
+* https://semver.org/
 
