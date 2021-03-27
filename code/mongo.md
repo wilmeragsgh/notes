@@ -7,7 +7,7 @@ description: Frecuently used code for mongo
 **Export database**:
 
 ```sh
-mongodump -d <database_name> -o <directory_backup>
+mongodump --host <database-host> -d <database-name> --port <database-port> --out directory
 ```
 
 **Import database**:
