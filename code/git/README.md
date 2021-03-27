@@ -213,8 +213,15 @@ git update-index --assume-unchanged .dvc/config
 
 > More info on this [stackoverflow](https://stackoverflow.com/questions/3319479/can-i-git-commit-a-file-and-ignore-its-content-changes)
 
+**commits**
+
+Try to keep the convention:
+
+ bug fix, a feature, change to the documentation, etc. as prefix to subject (fix, feat, doc).
+
 
 ## References
 
 - https://chris.beams.io/posts/git-commit/
-
+- https://udacity.github.io/git-styleguide/
+- https://linuxhint.com/git_blame/
