@@ -216,3 +216,26 @@ my_new_model.fit_generator(
         validation_data=validation_generator,
         validation_steps=1)
 ```
+
+##### TPU usage
+
+```python
+%tensorflow_version 2.x
+import tensorflow as tf
+try:
+  tpu = tf.distribute.cluster_resolver.TPUClusterResolver()  # TPU detection
+  print('Running on TPU ', tpu.cluster_spec().as_dict()['worker'])
+except ValueError:
+  raise BaseException('ERROR: Not connected to a TPU runtime; please see the previous cell in this notebook for instructions!')
+tf.config.experimental_connect_to_cluster(tpu)
+tf.tpu.experimental.initialize_tpu_system(tpu)
+tpu_strategy = tf.distribute.experimental.TPUStrategy(tpu)
+```
+
+When training:
+
+```python
+with tpu_strategy.scope():
+    full_model = create_model(max_words, embedding_dim, max_len, embedding_matrix)
+    history = full_model.fit(X_train, Y_train, epochs = 14)
+```
