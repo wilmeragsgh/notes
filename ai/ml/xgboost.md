@@ -130,3 +130,4 @@ for index in enumerate(observations):
 
 - [Code](https://xgboost.readthedocs.io/en/latest/tutorials/model.html) , [Python API Reference](https://xgboost.readthedocs.io/en/latest/python/python_api.html)
 - [Paper](https://arxiv.org/pdf/1603.02754.pdf)
+- [Winning solution for](https://github.com/dmlc/xgboost/tree/master/demo#machine-learning-challenge-winning-solutions)
