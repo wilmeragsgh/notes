@@ -6,6 +6,12 @@ description: ML knowledge and experiences
 
 
 
+**ML Workflows by company**
+
+- [AWS](https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works-mlconcepts.html)
+- [GCP](https://cloud.google.com/ai-platform/docs/ml-solutions-overview)
+- [Azure](https://docs.microsoft.com/en-us/azure/machine-learning/overview-what-is-azure-ml)
+
 ## Some ideas
 
 ### Style transfer on text
@@ -83,6 +89,27 @@ To screen for possible leaky predictors, look for columns that are statistically
 If you build a model and find it extremely accurate, you likely have a leakage problem.
 Preventing Leaky Validation Strategies
 If your validation is based on a simple train-test split, exclude the validation data from any type of fitting, including the fitting of preprocessing steps. This is easier if you use scikit-learn Pipelines. When using cross-validation, it's even more critical that you use pipelines and do your preprocessing inside the pipeline.
+
+
+
+**Important considerations when deploying**
+
+Model versioning
+
+Model monitoring
+
+Model updating & routing (route between different model variants for comparison)
+
+Predictions type:
+
+- On-demand.
+- Batch.
+
+## Glosary
+
+**hyperparameter** is a parameter whose value *cannot* be estimated from the data. [more info](https://scikit-learn.org/stable/modules/grid_search.html#)
+
+
 
 ## Resources
 
