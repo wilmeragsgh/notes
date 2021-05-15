@@ -1,7 +1,6 @@
 # Table of contents
 
 * [Hi!](README.md)
-
 * [Code](code/README.md)
   * [Python](code/python/README.md)
     * [Airflow](code/python/airflow.md)
@@ -37,21 +36,22 @@
   * [Tmux](code/tmux.md)
   * [Vim](code/vim.md)
   * [Web tools](code/web-tools.md)
+* [AI](ai/README.md)
 
+  * [ML](ai/ml/README.md)
+  * [Cloud platforms](ai/ml/cloud_platforms/README.md)
 * [Linux](linux/README.md)
-
 * [Meta](meta/README.md)
-
 * [Readings](readings/README.md)
 
   * [About Habits](readings/habits.md)
   * [About Project Management](readings/projects_management.md)
   * [About psychology](readings/psychology.md)
   * [Quotes](readings/quotes.md)
-
 * [Thoughts](thoughts/README.md)
   
   * [On the importance of questions](thoughts/on-the-importance-of-questions.md)
   * [Relationships](thoughts/relationships.md)
   
-  
+* [Web Development](webdev/README.md)
+  * [Vue](webdev/vue/README.md)
