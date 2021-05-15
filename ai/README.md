@@ -27,3 +27,7 @@ description: AI Knowledge and experiences
 - [Papers With Code : Question Generation](https://paperswithcode.com/task/question-generation)
 
 - [Question Generation: Using NLP to Solve “Inverse” Task](https://medium.com/@aleckretch/question-generation-using-nlp-to-solve-inverse-task-a92ff033bcf1)
+
+### Data principles
+
+- http://vita.had.co.nz/papers/tidy-data.html
