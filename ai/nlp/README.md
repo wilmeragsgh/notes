@@ -6,6 +6,20 @@ description: NLP Knowledge and experiences
 
 
 
+### Python
+
+```python
+import sklearn
+from sklearn.feature_extraction.text import CountVectorizer
+# instantiate an ngram counter
+counts = CountVectorizer(analyzer='word', ngram_range=(n,n))
+
+# create a dictionary of n-grams by calling `.fit`
+vocab2int = counts.fit([a_text, s_text]).vocabulary_
+```
+
+
+
 ## Resources
 
 - [CS 224N](http://web.stanford.edu/class/cs224n/)  (Don't remember why i need this: 51506490)
