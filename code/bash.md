@@ -191,9 +191,15 @@ aws '{gsub(/old/,"NEW"); print}' in_file > out_file
 sed -n '/^CREATE TABLE/,/GO/p'
 ```
 
+**Generate a password or key**
+
+```bash
+openssl rand -base64 32
+```
 
 
-## References
+
+## **References**
 
 * [https://dev.to/thiht/shell-scripts-matter](https://dev.to/thiht/shell-scripts-matter)
 * [Awesome shell](https://github.com/alebcay/awesome-shell)
