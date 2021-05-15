@@ -225,6 +225,12 @@ import itertools
 test = [[-1, -2], [30, 40], [25, 35]]
 print(list(itertools.chain.from_iterable(test)))
 
+# or (fastest)
+
+import functools
+import operator
+functools.reduce(operator.iconcat, a, [])
+
 #-> [-1, -2, 30, 40, 25, 35]
 ```
 
@@ -264,6 +270,69 @@ set(elem for elem_of_list_of_list in list_of_list for elem in elem_of_list_of_li
 list(set(lista).intersection(listb))
 ```
 
+**Get a sorted by value dict **
+
+```python
+dict(sorted(word_count.items(), key=lambda item: item[1])).keys()
+```
+
+
+
+**Useful magic methods**
+
+`__add__` , ` __repr__`
+
+
+
+**Creating a package**
+
+having setup.py like:
+
+```python
+from setuptools import setup
+
+setup(name='pkg_name',
+      version='0.1',
+      description='Pkg description',
+      packages=['pkg_name'],
+      zip_safe=False)
+```
+
+and a module at `pkg_name` folder,  execute
+
+```bash
+cd pkg_parent_dir
+python setup.py sdist bdist_wheel
+pip install twine
+
+# commands to upload to the pypi test repository
+twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+pip install --index-url https://test.pypi.org/simple/ pkg_name
+
+# command to upload to the pypi repository
+twine upload dist/*
+pip install pkg_name
+```
+
+#### Reminders
+
+- include a README file detailing the files in your package and how to install the package.
+- Comment your code - use docstrings and inline comments where appropriate.
+- Refactor code when possible - if you find your functions are getting too long, then refactor your code!
+- Use object-oriented programming whenever it makes sense to do so.
+- You're encouraged to write unit tests! The coding exercises in this lesson contained unit tests, so you can use those tests as a model for your package.
+- Use GitHub for version control, and commit your work often.
+
+As a reminder, your package should be placed in a folder with the following folders and files:
+
+- a folder with the name of your package that contains:
+  - the Python code that makes up your package
+  - a `README.md` file
+  - an `__init__.py`
+  - `license.txt`
+  - `setup.cfg`
+- setup.py file
+
 
 
 ## References
@@ -274,4 +343,24 @@ list(set(lista).intersection(listb))
 * https://realpython.com/documenting-python-code/
 * [The Python Graph Gallery – Visualizing data – with Python](https://python-graph-gallery.com)
 * [Awesome distributed deep learning](https://github.com/bharathgs/Awesome-Distributed-Deep-Learning)
+* https://www.toptal.com/flask/flask-production-recipes
+* https://levelup.gitconnected.com/deploy-your-machine-learning-model-as-a-rest-api-on-aws-english-dcb1a0db3110
 
+
+
+### Frameworks
+
+* https://sanicframework.org/en/
+* https://github.com/ml-tooling/opyrator
+
+
+### OOP
+
+* https://realpython.com/instance-class-and-static-methods-demystified/
+* https://www.python-course.eu/python3_class_and_instance_attributes.php
+* https://easyaspython.com/mixins-for-fun-and-profit-cb9962760556
+* https://realpython.com/primer-on-python-decorators/
+
+### Creating a package
+
+- https://packaging.python.org/guides/distributing-packages-using-setuptools/
