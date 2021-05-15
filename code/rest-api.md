@@ -4,6 +4,12 @@ description: API implementation resources
 
 # REST API
 
+## Glossary
+
+Rest = REpresentational State Transfer (is an architecture!) architecture that provides a framework for the *set of rules* and *constraints* that must be adhered to for *communication* between programs.
+
+URL = Uniform Resource Locator,
+
 ### Resources
 
 * [https://hackernoon.com/restful-api-designing-guidelines-the-best-practices-60e1d954e7c9](https://hackernoon.com/restful-api-designing-guidelines-the-best-practices-60e1d954e7c9)
