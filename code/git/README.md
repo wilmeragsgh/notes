@@ -213,11 +213,25 @@ git update-index --assume-unchanged .dvc/config
 
 > More info on this [stackoverflow](https://stackoverflow.com/questions/3319479/can-i-git-commit-a-file-and-ignore-its-content-changes)
 
-**commits**
+### Commits
 
 Try to keep the convention:
 
  bug fix, a feature, change to the documentation, etc. as prefix to subject (fix, feat, doc).
+
+**Some guidelines**
+
+For example, your commit message should start with one of the following words:
+
+- feat: a new feature
+- fix: a bug fix
+- docs: changes to documentation
+- style: formatting, missing semi colons, etc; no code change
+- refactor: * refactoring production code
+- test: adding tests, refactoring test; no production code change
+- chore: updating build tasks, package manager configs, etc; no production code change
+
+Also, subjects should be no greater than 50 characters and should begin with a capital letter and do not end with a period.
 
 
 ## References
@@ -225,3 +239,5 @@ Try to keep the convention:
 - https://chris.beams.io/posts/git-commit/
 - https://udacity.github.io/git-styleguide/
 - https://linuxhint.com/git_blame/
+- https://career-resource-center.udacity.com/contributing-to-open-source
+- http://www.databasically.com/2011/03/14/git-commit-early-commit-often/
