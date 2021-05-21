@@ -37,8 +37,9 @@
   * [Vim](code/vim.md)
   * [Web tools](code/web-tools.md)
 * [AI](ai/README.md)
-
   * [ML](ai/ml/README.md)
+    * [xgboost](ai/ml/xgboost.md)
+    * [Performance evaluation](ai/ml/performance_evaluation.md)
   * [Cloud platforms](ai/ml/cloud_platforms/README.md)
 * [Linux](linux/README.md)
 * [Meta](meta/README.md)
