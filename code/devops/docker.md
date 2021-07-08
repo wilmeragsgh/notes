@@ -69,6 +69,25 @@ CMD ["python", "myapp.py"]
 
 `docker volume prune`
 
+**Run container**
+
+```bash
+docker run --network="host" -p 8080:8080 --name <name-of-the-container> wilmerags/image-name:tag
+# network host to make it visible
+```
+
+
+
+
+
+**Tag image for pushing**
+
+```bash
+docker tag 434eb3701cc9 wilmerags/twitter-executor # 434.. is the image ID
+```
+
+
+
 **Building local image into docker-compose**: 
 
 - https://stackoverflow.com/questions/46032392/docker-compose-does-not-allow-to-use-local-images

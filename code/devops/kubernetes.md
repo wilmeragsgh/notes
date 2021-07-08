@@ -67,7 +67,11 @@ minikube start
 kubectl delete namespace <name-of-the-namespace>
 ```
 
+**Create namespace**
 
+```bash
+kubectl create namespace twitter-executor
+```
 
 **To run a service from minikube**
 
@@ -111,9 +115,69 @@ for example for jupyterhub: `minikube service proxy-public -n jhub`
    ```
 
 
+
+**Set new image for a given deployment**
+
+```bash
+kubectl set image deploy DEPLOYMENT_NAME IMAGENAME=IMAGENAME:ERSION
+```
+
+**Get revisions**
+
+```bash
+kubectl get rs -n NAMESPACE
+```
+
+**Rollback to previous revision**
+
+```bash
+kubectl rollout undo deployment DEPLOYMENT_NAME --to-revision=REVISION_NUMBER	
+```
+
+**Inspect revisions**
+
+```bash
+kubectl rollout history deploy DEPLOYNAME -n NAMESPACE --revision=REVISION_NUMBER
+```
+
+> Revisions used for rollback are available as their new revision instead of their original.
+
+
+
+![image-20210702225147344](/home/w/.config/Typora/typora-user-images/image-20210702225147344.png)
+
+
+
+![image-20210702225306182](/home/w/.config/Typora/typora-user-images/image-20210702225306182.png)
+
+> That's what the selector field in the service manifest is for
+
+**Scale deployment**
+
+```bash
+kubectl scale deployment tasksapp --replicas=3
+```
+
+**Set namespace**
+
+```bash
+kubectl config set-context --current --namespace=dev
+```
+
+
+
+## Resources
+
+- https://keda.sh/
+- https://www.bodyworkml.com/
+- https://github.com/CrunchyData/postgres-operator
+
 ## References
 
 - https://kubernetes.io/docs/tasks/tools/install-minikube/
 - https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl-on-linux
 - https://minikube.sigs.k8s.io/docs/start/
 - https://help.ubuntu.com/community/KVM/Installation#Installation
+- https://minikube.sigs.k8s.io/docs/handbook/accessing/#using-minikube-tunnel
+- https://levelup.gitconnected.com/deploy-your-first-flask-mongodb-app-on-kubernetes-8f5a33fa43b4
+- https://github.com/testdrivenio/flask-vue-kubernetes !! Useful
