@@ -62,12 +62,16 @@ CREATE TABLE tbl([col [type]]...)
 ```
 
 **List db**
-`\d`
+`\l`
 
 **List users**
 `
 \du
 `
+
+**List tables**
+
+`\dt`
 
 **Change user password**
 ```SQL
@@ -107,8 +111,25 @@ pg_dump -U postgres --schema-only db_name > file.txt
 psql -U username dbname < dbexport.pgsql
 ```
 
+**Kill postgresql session**
+
+```sql
+SELECT 
+    pg_terminate_backend(pid) 
+FROM 
+    pg_stat_activity 
+WHERE 
+    -- don't kill my own connection!
+    pid <> pg_backend_pid()
+    -- don't kill the connections to other databases
+    AND datname = 'database_name'
+;
+```
+
 
 
 ## Useful tools
 
-- [postgrest](https://postgrest.org/en/v7.0.0/)
+- [Postgrest](https://postgrest.org/en/v7.0.0/)
+- [Cheatsheet](https://www.postgresqltutorial.com/wp-content/uploads/2018/03/PostgreSQL-Cheat-Sheet.pdf)
+
