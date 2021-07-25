@@ -4,6 +4,12 @@ description: Frequently used bash snippets
 
 # Bash
 
+**Check memory from bash**
+
+```bash
+free -mh
+```
+
 **Check access through ssh**
 
 ```bash
@@ -48,7 +54,11 @@ if [ -z $VAR1 ] || [ -z $VAR2]; then
 fi
 ```
 
+**Uninstall packages**
 
+```bash
+sudo apt remove pkg
+```
 
 **Kill processes**
 
