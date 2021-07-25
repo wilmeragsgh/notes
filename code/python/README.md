@@ -65,10 +65,10 @@ Todo:
 """Connects to the next available port.
 
     Args:
-      minimum: A port value greater or equal to 1024.
+      (int) minimum: A port value greater or equal to 1024.
 
     Returns:
-      The new minimum port.
+      (int) The new minimum port.
 
     Raises:
       ConnectionError: If no available port is found.
@@ -234,6 +234,23 @@ functools.reduce(operator.iconcat, a, [])
 #-> [-1, -2, 30, 40, 25, 35]
 ```
 
+**Fastest way to iterate over rows in pandas DataFrame**
+
+```python
+df_dict = df.to_dict('records')
+for row in df_dict:
+    temp = row['val1'] * row['val2']
+    temp = temp ** 2
+```
+
+**Progress bar for loops**
+
+```python
+from tqdm import tqdm
+for i in tqdm(range(10000)):
+    pass
+```
+
 **Packing and unpacking**
 
 ```python
@@ -270,10 +287,57 @@ set(elem for elem_of_list_of_list in list_of_list for elem in elem_of_list_of_li
 list(set(lista).intersection(listb))
 ```
 
-**Get a sorted by value dict **
+**Get a sorted by value dictionary**
 
 ```python
 dict(sorted(word_count.items(), key=lambda item: item[1])).keys()
+```
+
+**Sort a list of dictionaries by value**
+
+```python
+newlist = sorted(list_to_be_sorted, key=lambda k: k['name'])
+```
+
+**Reverse a list**
+
+```python
+test[::-1]
+```
+
+**Transpose a matrix**
+
+```python
+test = [[1,2], [3,4], [5,6]]
+[[t[j] for t in test] for j in range(len(test[0]))]
+```
+
+
+
+**Get current time**
+
+```python
+from datetime import datetime
+now = datetime.now()
+current_time = now.strftime("%Y%m%d%H%M")
+```
+
+**Try/catch requests**
+
+```python
+url='http://www.google.com/blahblah'
+
+try:
+    r = requests.get(url,timeout=3)
+    r.raise_for_status()
+except requests.exceptions.RequestException as err:
+    print ("OOps: Something Else",err)
+except requests.exceptions.HTTPError as errh:
+    print ("Http Error:",errh)
+except requests.exceptions.ConnectionError as errc:
+    print ("Error Connecting:",errc)
+except requests.exceptions.Timeout as errt:
+    print ("Timeout Error:",errt)
 ```
 
 
