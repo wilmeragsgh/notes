@@ -76,9 +76,17 @@ docker run --network="host" -p 8080:8080 --name <name-of-the-container> wilmerag
 # network host to make it visible
 ```
 
+**Add parameters to docker image build **
 
+```bash
+docker build --build-arg APP_ENV=DESIRED_ENV -f Dockerfile -t wilmerags/twitter-executor:IMAGE_TAG .
+```
 
-
+```dockerfile
+# ...
+COPY env/${APP_ENV}/.env /app/
+# ...
+```
 
 **Tag image for pushing**
 
