@@ -114,21 +114,22 @@ Predictions type:
 ## Resources
 
 - [Building a Production Machine Learning Infrastructure](https://machinelearningmastery.com/building-a-production-machine-learning-infrastructure/)
-
 - [Deploy Your Predictive Model To Production](https://machinelearningmastery.com/deploy-machine-learning-model-to-production/)
-
 - [Introduction  \|  Introduction to Machine Learning Problem Framing  |  Google Developers](https://developers.google.com/machine-learning/problem-framing/)
-
 - [Become a Machine Learning Engineer \| Udacity | Udacity](https://www.udacity.com/course/machine-learning-engineer-nanodegree--nd009t)
-
 - [Machine learning education  \|  TensorFlow](https://www.tensorflow.org/resources/learn-ml)
-
 - [Tune: a Python library for fast hyperparameter tuning at any scale](https://towardsdatascience.com/fast-hyperparameter-tuning-at-scale-d428223b081c)
-
 - [Tune Examples — Ray 0.9.0.dev0 documentation](https://ray.readthedocs.io/en/latest/tune-examples.html)
-
 - [ray-project/ray · GitHub](https://github.com/ray-project/ray/blob/master/python/ray/tune/examples/xgboost_example.py)
-
 - [Tune Examples — Ray 0.9.0.dev0 documentation](https://ray.readthedocs.io/en/latest/tune-examples.html)
+- [Cheatsheets](https://startupsventurecapital.com/essential-cheat-sheets-for-machine-learning-and-deep-learning-researchers-efb6a8ebd2e5)
 
-  
+
+
+**Other tools**
+
+- https://dagshub.com/
+- https://www.mlflow.org/docs/latest/concepts.html
+- https://zenml.io/
+- https://www.kubeflow.org/docs/distributions/microk8s/kubeflow-on-microk8s/
+
