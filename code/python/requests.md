@@ -25,6 +25,25 @@ import requests
 requests.get("URL",headers={"Authorization":"Bearer %s" % token})
 ```
 
+**Try/catch requests**
+
+```python
+url='http://www.google.com/blahblah'
+
+try:
+    r = requests.get(url,timeout=3)
+    r.raise_for_status()
+except requests.exceptions.RequestException as err:
+    print ("OOps: Something Else",err)
+except requests.exceptions.HTTPError as errh:
+    print ("Http Error:",errh)
+except requests.exceptions.ConnectionError as errc:
+    print ("Error Connecting:",errc)
+except requests.exceptions.Timeout as errt:
+    print ("Timeout Error:",errt)
+```
+
+
 ## Other utils
 
 ### References
