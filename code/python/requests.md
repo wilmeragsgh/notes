@@ -54,3 +54,5 @@ https://devhints.io/httpie
 https://testdriven.io/blog/asynchronous-tasks-with-falcon-and-celery/
 
 https://www.python-httpx.org/ (Seems really interesting for async requests)
+
+https://locust.io/
