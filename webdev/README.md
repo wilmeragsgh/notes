@@ -4,6 +4,20 @@ description: Some notes on web development
 
 # Web development
 
+### Updating node
+
+```js
+sudo npm cache clean -f
+```
+
+```js
+sudo npm install -g n
+```
+
+```js
+sudo n stable
+```
+
 
 
 ## For a chrome extension
