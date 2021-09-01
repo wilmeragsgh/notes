@@ -123,6 +123,7 @@ Predictions type:
 - [ray-project/ray · GitHub](https://github.com/ray-project/ray/blob/master/python/ray/tune/examples/xgboost_example.py)
 - [Tune Examples — Ray 0.9.0.dev0 documentation](https://ray.readthedocs.io/en/latest/tune-examples.html)
 - [Cheatsheets](https://startupsventurecapital.com/essential-cheat-sheets-for-machine-learning-and-deep-learning-researchers-efb6a8ebd2e5)
+- https://machinelearningmastery.com/xgboost-for-imbalanced-classification/
 
 
 
@@ -133,3 +134,4 @@ Predictions type:
 - https://zenml.io/
 - https://www.kubeflow.org/docs/distributions/microk8s/kubeflow-on-microk8s/
 - https://www.aporia.com/
+- https://explainerdashboard.readthedocs.io/en/latest/explainers.html
