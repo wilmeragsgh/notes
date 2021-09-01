@@ -84,6 +84,7 @@ sed -i 's/past/future/g' file.txt
 sed -i 'Ld' file.txt
 # L is the linenumber to delete
 ```
+
 **Add character to the beginning of the file**
 
 ```bash
@@ -185,7 +186,7 @@ unzip target_file.zip
 sed -n LINEp target_file
 ```
 
-> awk > sed for big files
+> awk &gt; sed for big files
 
 **Substitute char in big file**
 
@@ -193,7 +194,7 @@ sed -n LINEp target_file
 aws '{gsub(/old/,"NEW"); print}' in_file > out_file
 ```
 
-> Might require LC_ALL=C at the beginning depending on in_file encoding
+> Might require LC\_ALL=C at the beginning depending on in\_file encoding
 
 **Get content between START and END pattern**
 
@@ -206,8 +207,6 @@ sed -n '/^CREATE TABLE/,/GO/p'
 ```bash
 openssl rand -base64 32
 ```
-
-
 
 ## **References**
 

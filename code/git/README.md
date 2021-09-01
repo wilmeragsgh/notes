@@ -196,7 +196,6 @@ git push -f
 4. Commit your changes
 5. Force your new local repo changes to overwrite the remote repo, effectively getting rid of the secrets you accidentally committed
 
-
 **Commit specific changes of a file**
 
 ```bash
@@ -217,27 +216,27 @@ git update-index --assume-unchanged .dvc/config
 
 Try to keep the convention:
 
- bug fix, a feature, change to the documentation, etc. as prefix to subject (fix, feat, doc).
+bug fix, a feature, change to the documentation, etc. as prefix to subject \(fix, feat, doc\).
 
 **Some guidelines**
 
 For example, your commit message should start with one of the following words:
 
-- feat: a new feature
-- fix: a bug fix
-- docs: changes to documentation
-- style: formatting, missing semi colons, etc; no code change
-- refactor: * refactoring production code
-- test: adding tests, refactoring test; no production code change
-- chore: updating build tasks, package manager configs, etc; no production code change
+* feat: a new feature
+* fix: a bug fix
+* docs: changes to documentation
+* style: formatting, missing semi colons, etc; no code change
+* refactor: \* refactoring production code
+* test: adding tests, refactoring test; no production code change
+* chore: updating build tasks, package manager configs, etc; no production code change
 
 Also, subjects should be no greater than 50 characters and should begin with a capital letter and do not end with a period.
 
-
 ## References
 
-- https://chris.beams.io/posts/git-commit/
-- https://udacity.github.io/git-styleguide/
-- https://linuxhint.com/git_blame/
-- https://career-resource-center.udacity.com/contributing-to-open-source
-- http://www.databasically.com/2011/03/14/git-commit-early-commit-often/
+* [https://chris.beams.io/posts/git-commit/](https://chris.beams.io/posts/git-commit/)
+* [https://udacity.github.io/git-styleguide/](https://udacity.github.io/git-styleguide/)
+* [https://linuxhint.com/git\_blame/](https://linuxhint.com/git_blame/)
+* [https://career-resource-center.udacity.com/contributing-to-open-source](https://career-resource-center.udacity.com/contributing-to-open-source)
+* [http://www.databasically.com/2011/03/14/git-commit-early-commit-often/](http://www.databasically.com/2011/03/14/git-commit-early-commit-often/)
+

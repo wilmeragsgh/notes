@@ -67,8 +67,6 @@ model_performance
 model_performance.iloc[model_performance['f1'].idxmax()]
 ```
 
-
-
 **Random search of parameters**
 
 ```python
@@ -100,8 +98,6 @@ random_search.fit(X_train,y_train)
 print('\n Best hyperparameters:')
 print(random_search.best_params_)
 ```
-
-
 
 **Bayesian optimization**
 
@@ -145,8 +141,7 @@ optimizer.maximize(init_points=2, n_iter=3)
 print(optimizer.max)
 ```
 
-
-
 ## References
 
-- [Automated Machine Learning Hyperparameter Tuning in Python](https://towardsdatascience.com/automated-machine-learning-hyperparameter-tuning-in-python-dfda59b72f8a)
+* [Automated Machine Learning Hyperparameter Tuning in Python](https://towardsdatascience.com/automated-machine-learning-hyperparameter-tuning-in-python-dfda59b72f8a)
+

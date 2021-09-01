@@ -82,16 +82,14 @@ print("Test Accuracy:", accuracy.eval({X: X_test, Y: Y_test}))
 
 ## Convolutions
 
-##### Input
+#### Input
 
-- M: 2d-Tensor with real values (where we will apply the convolution)
-- K: Smaller 2d-tensor with real values (the convolution kernel)
+* M: 2d-Tensor with real values \(where we will apply the convolution\)
+* K: Smaller 2d-tensor with real values \(the convolution kernel\)
 
-
-##### Process
+#### Process
 
 1. Multiply each entry of the 2d-tensor K with each one on the 2d-tensor M 
-
 
 I think they could be affected by the resolution of the images
 
@@ -141,39 +139,40 @@ tf.reduce_mean
 >
 > Example of functional code for a tf project is at docs/career/convnet\_course
 
+### Images
 
-
-
-#### Images
-##### Read functions
+#### Read functions
 
 ```python
 from tensorflow.python.keras.preprocessing.image import load_img,img_to_array
 
 imgs = [load_img(img_path, target_size=(img_height, img_width)) for img_path in img_paths]
     img_array = np.array([img_to_array(img) for img in imgs])
-
 ```
 
-##### ResNet50 preprocessing
+#### ResNet50 preprocessing
+
 ```python
 from tensorflow.python.keras.applications.resnet50 import preprocess_input
 output = preprocess_input(img_array)
 ```
 
-##### Utils
+#### Utils
+
 ```python
 from keras.applications.resnet50 import decode_predictions
 decode_predictions(preds, top=3) # model.predict output
 ```
 
-##### Display on notebook
+#### Display on notebook
+
 ```python
 from IPython.display import Image,display
 display(Image(img_path))
 ```
 
-##### Transfer learning example
+#### Transfer learning example
+
 ```python
 from tensorflow.python.keras.applications import ResNet50
 from tensorflow.python.keras.models import Sequential
@@ -190,7 +189,8 @@ my_new_model.add(Dense(num_classes, activation='softmax'))
 my_new_model.layers[0].trainable = False
 ```
 
-##### Feeding data into models with ImageGenerator
+#### Feeding data into models with ImageGenerator
+
 ```python
 from tensorflow.python.keras.applications.resnet50 import preprocess_input
 from tensorflow.python.keras.preprocessing.image import ImageDataGenerator
@@ -217,7 +217,7 @@ my_new_model.fit_generator(
         validation_steps=1)
 ```
 
-##### TPU usage
+#### TPU usage
 
 ```python
 %tensorflow_version 2.x
@@ -239,3 +239,4 @@ with tpu_strategy.scope():
     full_model = create_model(max_words, embedding_dim, max_len, embedding_matrix)
     history = full_model.fit(X_train, Y_train, epochs = 14)
 ```
+

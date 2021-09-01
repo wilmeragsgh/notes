@@ -57,8 +57,6 @@ Todo:
 """
 ```
 
-
-
 **Example function Docstring**
 
 ```python
@@ -74,8 +72,6 @@ Todo:
       ConnectionError: If no available port is found.
 """
 ```
-
-
 
 **virtualenv**
 
@@ -104,8 +100,6 @@ poetry init
 # create poetry.lock
 poetry install
 ```
-
-
 
 **Creating directory if it doesn't exist**
 
@@ -184,14 +178,15 @@ dict(zip(unique, counts))
 testDict = {'x': 1, 'y': 2,'z': 3}
 def test(x,y,z):
     print(x,y,z)
-test(**testDict)    
+test(**testDict)
 ```
 
 **Store expressions in dictionaries**
+
 ```python
 stdcalc = {
-	'sum': lambda x, y: x + y,
-	'subtract': lambda x, y: x - y
+    'sum': lambda x, y: x + y,
+    'subtract': lambda x, y: x - y
 }
 
 print(stdcalc['sum'](9,3))
@@ -199,6 +194,7 @@ print(stdcalc['subtract'](9,3))
 ```
 
 **Factorial of given number**
+
 ```python
 import functools
 result = (lambda k: functools.reduce(int.__mul__, range(1,k+1),1))(3)
@@ -206,12 +202,14 @@ print(result)
 ```
 
 **Most frequent value on a list**
+
 ```python
 test = [1,2,3,4,2,2,3,1,4,4,4]
 print(max(set(test), key=test.count))
 ```
 
 **Get sizes of objects in bytes**
+
 ```python
 import sys
 x=1
@@ -322,9 +320,7 @@ current_time = now.strftime("%Y%m%d%H%M")
 
 **Useful magic methods**
 
-`__add__` , ` __repr__`
-
-
+`__add__` , `__repr__`
 
 **Creating a package**
 
@@ -340,7 +336,7 @@ setup(name='pkg_name',
       zip_safe=False)
 ```
 
-and a module at `pkg_name` folder,  execute
+and a module at `pkg_name` folder, execute
 
 ```bash
 cd pkg_parent_dir
@@ -358,51 +354,47 @@ pip install pkg_name
 
 #### Reminders
 
-- include a README file detailing the files in your package and how to install the package.
-- Comment your code - use docstrings and inline comments where appropriate.
-- Refactor code when possible - if you find your functions are getting too long, then refactor your code!
-- Use object-oriented programming whenever it makes sense to do so.
-- You're encouraged to write unit tests! The coding exercises in this lesson contained unit tests, so you can use those tests as a model for your package.
-- Use GitHub for version control, and commit your work often.
+* include a README file detailing the files in your package and how to install the package.
+* Comment your code - use docstrings and inline comments where appropriate.
+* Refactor code when possible - if you find your functions are getting too long, then refactor your code!
+* Use object-oriented programming whenever it makes sense to do so.
+* You're encouraged to write unit tests! The coding exercises in this lesson contained unit tests, so you can use those tests as a model for your package.
+* Use GitHub for version control, and commit your work often.
 
 As a reminder, your package should be placed in a folder with the following folders and files:
 
-- a folder with the name of your package that contains:
-  - the Python code that makes up your package
-  - a `README.md` file
-  - an `__init__.py`
-  - `license.txt`
-  - `setup.cfg`
-- setup.py file
-
-
+* a folder with the name of your package that contains:
+  * the Python code that makes up your package
+  * a `README.md` file
+  * an `__init__.py`
+  * `license.txt`
+  * `setup.cfg`
+* setup.py file
 
 ## References
 
 * [https://google.github.io/styleguide/pyguide.html](https://google.github.io/styleguide/pyguide.html)
-* https://github.com/PyCQA/pycodestyle
-* https://docs.pytest.org/en/latest/
-* https://realpython.com/documenting-python-code/
+* [https://github.com/PyCQA/pycodestyle](https://github.com/PyCQA/pycodestyle)
+* [https://docs.pytest.org/en/latest/](https://docs.pytest.org/en/latest/)
+* [https://realpython.com/documenting-python-code/](https://realpython.com/documenting-python-code/)
 * [The Python Graph Gallery – Visualizing data – with Python](https://python-graph-gallery.com)
 * [Awesome distributed deep learning](https://github.com/bharathgs/Awesome-Distributed-Deep-Learning)
-* https://www.toptal.com/flask/flask-production-recipes
-* https://levelup.gitconnected.com/deploy-your-machine-learning-model-as-a-rest-api-on-aws-english-dcb1a0db3110
-
-
+* [https://www.toptal.com/flask/flask-production-recipes](https://www.toptal.com/flask/flask-production-recipes)
+* [https://levelup.gitconnected.com/deploy-your-machine-learning-model-as-a-rest-api-on-aws-english-dcb1a0db3110](https://levelup.gitconnected.com/deploy-your-machine-learning-model-as-a-rest-api-on-aws-english-dcb1a0db3110)
 
 ### Frameworks
 
-* https://sanicframework.org/en/
-* https://github.com/ml-tooling/opyrator
-
+* [https://sanicframework.org/en/](https://sanicframework.org/en/)
+* [https://github.com/ml-tooling/opyrator](https://github.com/ml-tooling/opyrator)
 
 ### OOP
 
-* https://realpython.com/instance-class-and-static-methods-demystified/
-* https://www.python-course.eu/python3_class_and_instance_attributes.php
-* https://easyaspython.com/mixins-for-fun-and-profit-cb9962760556
-* https://realpython.com/primer-on-python-decorators/
+* [https://realpython.com/instance-class-and-static-methods-demystified/](https://realpython.com/instance-class-and-static-methods-demystified/)
+* [https://www.python-course.eu/python3\_class\_and\_instance\_attributes.php](https://www.python-course.eu/python3_class_and_instance_attributes.php)
+* [https://easyaspython.com/mixins-for-fun-and-profit-cb9962760556](https://easyaspython.com/mixins-for-fun-and-profit-cb9962760556)
+* [https://realpython.com/primer-on-python-decorators/](https://realpython.com/primer-on-python-decorators/)
 
 ### Creating a package
 
-- https://packaging.python.org/guides/distributing-packages-using-setuptools/
+* [https://packaging.python.org/guides/distributing-packages-using-setuptools/](https://packaging.python.org/guides/distributing-packages-using-setuptools/)
+

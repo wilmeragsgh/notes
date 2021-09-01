@@ -1,13 +1,10 @@
 ---
 description: Useful concepts and snippets for using dvc
-
 ---
 
-# dvc
+# DVC
 
 [docs](https://dvc.org/doc)
-
-
 
 **Add new changes**
 
@@ -23,6 +20,4 @@ dvc remote modify NAMEREMOTE keyfile PATH/TO/.pem
 # dvc push
 # dvc pull
 ```
-
-
 

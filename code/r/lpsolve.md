@@ -1,10 +1,10 @@
-# lpSolve Library
+# lpSolve
 
 ## Recipes
 
 **Load balancing R example**
 
-```R
+```r
 install.packages('lpSolve')
 library('lpSolve')
 
