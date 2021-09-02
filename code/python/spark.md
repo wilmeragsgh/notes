@@ -79,6 +79,54 @@ df.filter("total_amount > 1000").collect()
 # or df.filter(df["total_amount"] > 1000).collect()
 ```
 
+**detect null values in column**
+
+```python
+df.where(F.col("col").isNull())
+#df.where(F.col("col").isNotNull())
+```
+
+**Fill null values**
+
+```python
+df.na.fill("")
+
+#Replace Replace 0 for null on only population column 
+df.na.fill(value=0,subset=["population"])
+
+#Conditional filling of na
+df.na.fill({"city": "unknown", "type": ""})
+```
+
+
+
+**Read/write parquet files**
+
+```python
+#read
+s3_path = "PATH"
+prod_cat_df = spark.read.parquet(s3_path)
+prod_cat_df.show(1, truncate=False, vertical=True)
+#write
+prod_cat_df.write.parquet(s3_path)
+#write with partition
+df.write.partitionBy("gender","salary")
+        .parquet("s3a://sparkbyexamples/parquet/people2.parquet")
+#read with partition
+parqDF = spark.read.parquet("s3a://sparkbyexamples/parquet/people2.parquet")
+parqDF.createOrReplaceTempView("Table2")
+df = spark.sql("select * from Table2  where gender='M' and salary >= 4000")
+```
+
+**Sample rows**
+
+```python
+df.sample(fraction=prop, seed=42)
+# stratified: 
+strat_dict = {} # proportion to sample by each 
+df.sampleBy(colname, strat_dict, seed=42)
+```
+
 **Transform to dict**
 
 ```python
