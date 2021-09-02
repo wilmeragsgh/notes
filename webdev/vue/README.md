@@ -188,6 +188,9 @@ app.component('component-name', {
 - https://github.com/PanJiaChen/vue-element-admin
 - https://vuejsexamples.com/tag/admin-template/
 - https://github.com/antoine92190/vue-advanced-chat
+- https://vuesax.com/
+- https://nuxtjs.org/
+- https://tailwindui.com/pricing
 
 ## References
 
@@ -201,4 +204,5 @@ app.component('component-name', {
 - https://itnext.io/how-to-structure-a-vue-js-project-29e4ddc1aeeb
 - https://dev.to/mornir/add-tailwind-to-your-vue-app-5hea
 - https://medium.com/front-end-weekly/from-vuetify-to-tailwind-a7e83284ddfc
+- https://www.reddit.com/r/vuejs/comments/g4gpwb/vue_js_or_nuxt_vuetify_or_bootstraptailwind_etc/
 - 
