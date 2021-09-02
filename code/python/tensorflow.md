@@ -239,3 +239,154 @@ with tpu_strategy.scope():
     full_model = create_model(max_words, embedding_dim, max_len, embedding_matrix)
     history = full_model.fit(X_train, Y_train, epochs = 14)
 ```
+
+
+
+## TFX
+
+### TFDV
+
+**References**
+
+- https://www.tensorflow.org/tfx/data_validation/get_started
+- https://blog.tensorflow.org/2018/09/introducing-tensorflow-data-validation.html
+- https://colab.research.google.com/github/tensorflow/tfx/blob/master/docs/tutorials/data_validation/tfdv_basic.ipynb#scrollTo=mPt5BHTwy_0F
+- https://www.tensorflow.org/tfx/data_validation/api_docs/python/tfdv
+
+**Import**
+
+```python
+import tensorflow as tf
+import tensorflow_data_validation as tfdv
+import pandas as pd
+from tensorflow_metadata.proto.v0 import schema_pb2
+
+
+print('TFDV Version: {}'.format(tfdv.__version__))
+print('Tensorflow Version: {}'.format(tf.__version__))
+```
+
+**Generate statistics**
+
+```python
+# Generate training dataset statistics
+train_stats = tfdv.generate_statistics_from_dataframe(train_df)
+```
+
+**Visualize statistics**
+
+```python
+# Visualize training dataset statistics
+tfdv.visualize_statistics(train_stats)
+```
+
+**Infer data schema**
+
+```python
+# Infer schema from the computed statistics.
+schema = tfdv.infer_schema(statistics=train_stats)
+
+# Display the inferred schema
+tfdv.display_schema(schema)
+```
+
+**Comparing stats from training/test**
+
+```python
+# Generate evaluation dataset statistics
+eval_stats = tfdv.generate_statistics_from_dataframe(eval_df)
+
+# Compare training with evaluation
+tfdv.visualize_statistics(
+    lhs_statistics=eval_stats, 
+    rhs_statistics=train_stats, 
+    lhs_name='EVAL_DATASET', 
+    rhs_name='TRAIN_DATASET'
+)
+```
+
+**Calculate and display anomalies**
+
+```python
+# Check evaluation data for errors by validating the evaluation dataset statistics using the reference schema
+anomalies = tfdv.validate_statistics(statistics=eval_stats, schema=schema)
+
+# Visualize anomalies
+tfdv.display_anomalies(anomalies)
+```
+
+**Fix anomalies in the schema**
+
+```python
+# Relax the minimum fraction of values that must come from the domain for the feature `native-country`
+country_feature = tfdv.get_feature(schema, 'native-country')
+country_feature.distribution_constraints.min_domain_mass = 0.9
+
+# Relax the minimum fraction of values that must come from the domain for the feature `occupation`
+occupation_feature = tfdv.get_feature(schema, 'occupation')
+occupation_feature.distribution_constraints.min_domain_mass = 0.9
+```
+
+**More flexible extension of schema**
+
+```python
+# Add new value to the domain of the feature `race`
+race_domain = tfdv.get_domain(schema, 'race')
+race_domain.value.append('Asian')
+```
+
+**Manual set of range for int values**
+
+```python
+# Restrict the range of the `age` feature
+tfdv.set_domain(schema, 'age', schema_pb2.IntDomain(name='age', min=17, max=90))
+
+# Display the modified schema. Notice the `Domain` column of `age`.
+tfdv.display_schema(schema)
+```
+
+**Data slicing**
+
+```python
+from tensorflow_data_validation.utils import slicing_util
+
+# features={'sex': [b'Male']} # or this for example (with b'')
+slice_fn = slicing_util.get_feature_value_slicer(features={'sex': None})
+
+# Declare stats options
+slice_stats_options = tfdv.StatsOptions(schema=schema,
+                                        slice_functions=[slice_fn],
+                                        infer_type_from_schema=True)
+
+
+# Convert dataframe to CSV since `slice_functions` works only with `tfdv.generate_statistics_from_csv`
+CSV_PATH = 'slice_sample.csv'
+train_df.to_csv(CSV_PATH)
+
+# Calculate statistics for the sliced dataset
+sliced_stats = tfdv.generate_statistics_from_csv(CSV_PATH, stats_options=slice_stats_options)
+
+from tensorflow_metadata.proto.v0.statistics_pb2 import DatasetFeatureStatisticsList
+
+
+#  An important caveat is visualize_statistics() accepts a DatasetFeatureStatisticsList type instead of DatasetFeatureStatistics. Thus, at least for this version of TFDV, you will need to convert it to the correct type.
+
+# Convert `Male` statistics (index=1) to the correct type and get the dataset name
+male_stats_list = DatasetFeatureStatisticsList()
+male_stats_list.datasets.extend([sliced_stats.datasets[1]])
+male_stats_name = sliced_stats.datasets[1].name
+
+# Convert `Female` statistics (index=2) to the correct type and get the dataset name
+female_stats_list = DatasetFeatureStatisticsList()
+female_stats_list.datasets.extend([sliced_stats.datasets[2]])
+female_stats_name = sliced_stats.datasets[2].name
+
+# Visualize the two slices side by side
+tfdv.visualize_statistics(
+    lhs_statistics=male_stats_list,
+    rhs_statistics=female_stats_list,
+    lhs_name=male_stats_name,
+    rhs_name=female_stats_name
+)
+```
+
