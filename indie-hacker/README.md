@@ -26,6 +26,9 @@
 - https://readme.so/editor
 - https://www.bravostudio.app/
 - https://super.so/
+- https://www.btw.so/open-source-alternatives
+- https://tailblocks.cc/
+- https://devdojo.com/tails/app#_
 
 
 
