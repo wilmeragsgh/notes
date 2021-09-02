@@ -105,6 +105,12 @@ poetry init
 poetry install
 ```
 
+**F-strings**
+
+```python
+f'{a:.2f}' # setting the number of digits for float a
+```
+
 
 
 **Creating directory if it doesn't exist**
@@ -255,10 +261,12 @@ for i in tqdm(range(10000)):
 
 ```python
 import pickle
+
 with open('file.pkl', 'rb') as f:
     data = pickle.load(f)
-with open('file.pkl', 'rb') as f:
-    data = pickle.load(f)
+    
+with open('mypickle.pickle', 'wb') as f:
+    pickle.dump(some_obj, f)
 ```
 
 **Check if file exist**
