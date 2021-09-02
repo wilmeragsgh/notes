@@ -193,8 +193,6 @@ print("\nCoeffecients are {}".format(logreg_model_direct.coefficients))
 print("\nIntercept is {}".format(logreg_model_direct.intercept))
 ```
 
-
-
 ### NLP tools
 
 **Tokenization**
@@ -236,8 +234,6 @@ print("Data after Stop Words Removal")
 stopWords_tokens.select('tokens_words','stopWordsRemoved').show(truncate=False)
 ```
 
-
-
 **TFIDF**
 
 ```python
@@ -272,8 +268,6 @@ final_data = idf_model.transform(HashingTF_featurized_data)
 print("Final Spark accepted Data - NLP Formatted Data ready to pass into any Machine Learning Model")
 final_data.select('label','features').show(truncate=60)
 ```
-
-
 
 ## References:
 

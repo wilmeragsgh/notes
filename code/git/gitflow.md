@@ -15,9 +15,9 @@ description: Git flow pattern practices
 7. As soon as the deployment in production has taken place, the `release` branch is merged with the `master` branch, and, with this merge operation, the `master` branch contains the production code. Hence, the code that is on the release branch and features branch is no longer necessary, and these branches can be deleted.
 8. If a bug is detected in production, we create a `hotfix/` branch; then once the bug is fixed, we merge this branch into the `master` and `develop` branches to propagate the fix on the next branches and deployments.
 
-### References
+## References
 
 * Learning DevOps by Mikael Krief.
-* Nvie [(pdf)](https://nvie.com/files/Git-branching-model.pdf)
-* https://semver.org/
+* Nvie [\(pdf\)](https://nvie.com/files/Git-branching-model.pdf)
+* [https://semver.org/](https://semver.org/)
 

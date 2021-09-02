@@ -39,3 +39,4 @@ ax
 # data is DataFrame(pandas)
 data.plot('A','B')
 ```
+

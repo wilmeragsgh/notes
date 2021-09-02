@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Hi!](README.md)
+* [Home](README.md)
 * [Code](code/README.md)
   * [Python](code/python/README.md)
     * [Airflow](code/python/airflow.md)
@@ -15,9 +15,9 @@
     * [Sklearn](code/python/sklearn.md)
     * [Spark](code/python/spark.md)
     * [Tensorflow](code/python/tensorflow.md)
-  * [R](code/R/README.md)
-    * [lpSolve](code/R/lpSolve.md)
-  * [sql](code/sql/README.md)
+  * [R](code/r/README.md)
+    * [lpSolve](code/r/lpsolve.md)
+  * [sql](code/sql.md)
   * [Git](code/git/README.md)
     * [GitFlow](code/git/gitflow.md)
   * [Bash](code/bash.md)
@@ -40,19 +40,17 @@
   * [ML](ai/ml/README.md)
     * [xgboost](ai/ml/xgboost.md)
     * [Performance evaluation](ai/ml/performance_evaluation.md)
-  * [Cloud platforms](ai/ml/cloud_platforms/README.md)
-* [Linux](linux/README.md)
-* [Meta](meta/README.md)
+  * [Cloud platforms](ai/cloud_platforms.md)
+* [Linux](linux.md)
+* [Meta](meta.md)
 * [Readings](readings/README.md)
-
   * [About Habits](readings/habits.md)
   * [About Project Management](readings/projects_management.md)
   * [About psychology](readings/psychology.md)
   * [Quotes](readings/quotes.md)
 * [Thoughts](thoughts/README.md)
-  
   * [On the importance of questions](thoughts/on-the-importance-of-questions.md)
   * [Relationships](thoughts/relationships.md)
-  
 * [Web Development](webdev/README.md)
-  * [Vue](webdev/vue/README.md)
+  * [Vue](webdev/vue.md)
+

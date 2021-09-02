@@ -12,8 +12,9 @@ description: Octave Knowledge and Experiences
 
 **Dot operations between x and y**
 
-`x .* y` or `x .- y` 
+`x .* y` or `x .- y`
 
 **Subsetting X**
 
 `x(1)`
+

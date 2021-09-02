@@ -19,7 +19,7 @@ es = Elasticsearch([ENDPOINT])
 liste_hello = ['hello1','hello2']
 liste_world = ['world1','world2']
 df = pd.DataFrame(data = {'hello' : liste_hello, 'world': liste_world})
- 
+
 # Bulk inserting documents. Each row in the DataFrame will be a document in ElasticSearch
 documents = df.to_dict(orient='records')
 bulk(es, documents, index='helloworld',doc_type='foo', raise_on_error=True)
@@ -32,11 +32,10 @@ bulk(es, documents, index='helloworld',doc_type='foo', raise_on_error=True)
 # Retrieving all documents in index (no query given)
 documents = es.search(index='helloworld',body={})['hits']['hits']
 df = pd.DataFrame(documents)
- 
+
 # Retrieving documents in index that match a query
 documents2 = es.search(index='helloworld',body={"query":{"term":{"hello" : "hello1" }}})['hits']['hits']
 df2 = pd.DataFrame(documents2)
-
 ```
 
 **Try this for analyzers**
@@ -62,6 +61,7 @@ elasticdump \
   --output=/data/apirequests_mapping.json \
   --type=mapping
 ```
+
 **Dumping data for Data**
 
 ```bash
@@ -102,3 +102,4 @@ while scroll_size > 0:
     # Get the number of results that returned in the last scroll
     scroll_size = len(results['hits']['hits'])
 ```
+

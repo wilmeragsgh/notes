@@ -11,8 +11,6 @@ description: Frecuently used code for keras
 3. Fit/Train
 4. Evaluate/Test
 
-
-
 **Save model**
 
 ```python
@@ -25,6 +23,7 @@ print("Saved model to disk")
 ```
 
 **Load model**
+
 ```python
 # load json and create model
 json_file = open('model.json', 'r')
@@ -77,10 +76,7 @@ X = Input(shape=(Tx, n_values))
 Lambda(lambda x: x[:, t, :])(X)
 ```
 
-
-
-
-
 ## References
 
-- [Keras Transfer Learning For Beginners – Towards Data Science](https://towardsdatascience.com/keras-transfer-learning-for-beginners-6c9b8b7143e)
+* [Keras Transfer Learning For Beginners – Towards Data Science](https://towardsdatascience.com/keras-transfer-learning-for-beginners-6c9b8b7143e)
+

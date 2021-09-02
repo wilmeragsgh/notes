@@ -2,7 +2,7 @@
 description: Frequently used code for requests related code snippets
 ---
 
-# requests
+# Requests
 
 ## Authentication
 
@@ -43,16 +43,15 @@ except requests.exceptions.Timeout as errt:
     print ("Timeout Error:",errt)
 ```
 
-
-
 ## Other utils
 
 ### References
 
-https://devhints.io/httpie
+[https://devhints.io/httpie](https://devhints.io/httpie)
 
-https://testdriven.io/blog/asynchronous-tasks-with-falcon-and-celery/
+[https://testdriven.io/blog/asynchronous-tasks-with-falcon-and-celery/](https://testdriven.io/blog/asynchronous-tasks-with-falcon-and-celery/)
 
-https://www.python-httpx.org/ (Seems really interesting for async requests)
+[https://www.python-httpx.org/](https://www.python-httpx.org/) \(Seems really interesting for async requests\)
 
-https://locust.io/
+[https://locust.io/](https://locust.io/)
+

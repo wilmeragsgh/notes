@@ -1,6 +1,5 @@
 ---
 description: General tips on R coding
-
 ---
 
 # R
@@ -20,13 +19,15 @@ sudo apt install r-base
 ```
 
 **Lint tool**
-- [lintr](https://github.com/jimhester/lintr)
+
+* [lintr](https://github.com/jimhester/lintr)
 
 **Installing Rstudio**
 
-https://rstudio.com/products/rstudio/download/#download
+[https://rstudio.com/products/rstudio/download/\#download](https://rstudio.com/products/rstudio/download/#download)
 
 ## Resources
 
-- [All graphs – The R Graph Gallery](https://www.r-graph-gallery.com/all-graphs/)
-- https://google.github.io/styleguide/Rguide.html
+* [All graphs – The R Graph Gallery](https://www.r-graph-gallery.com/all-graphs/)
+* [https://google.github.io/styleguide/Rguide.html](https://google.github.io/styleguide/Rguide.html)
+

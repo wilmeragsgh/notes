@@ -5,28 +5,22 @@ description: Xgboost related knowledge and experiances
 # xgboost
 
 ## Parameters
+
 The overall parameters have been divided into 3 categories by XGBoost authors:
 
-- **General Parameters**: Guide the overall functioning
-- **Booster Parameters**: Guide the individual booster (tree/regression) at each step
-- **Learning Task Parameters**: Guide the optimization performed
-
+* **General Parameters**: Guide the overall functioning
+* **Booster Parameters**: Guide the individual booster \(tree/regression\) at each step
+* **Learning Task Parameters**: Guide the optimization performed
 
 ### General parameters
 
-- booster [default=gbtree]
-Select the type of model to run at each iteration. It has 2 options:
-    - gbtree: tree-based models
-    - gblinear: linear models
+* booster \[default=gbtree\] Select the type of model to run at each iteration. It has 2 options:
+  * gbtree: tree-based models
+  * gblinear: linear models
+* silent \[default=0\]: Silent mode is activated if set to 1, i.e. no running messages will be printed. It’s generally good to keep it 0 as the messages might help in understanding the model.
+* nthread \[default to maximum number of threads available if not set\] This is used for parallel processing and number of cores in the system should be entered. If you wish to run on all cores, value should not be entered and algorithm will detect automatically
 
-- silent [default=0]:
-    Silent mode is activated if set to 1, i.e. no running messages will be printed. It’s generally good to keep it 0 as the messages might help in understanding the model.
-
-- nthread [default to maximum number of threads available if not set]
-    This is used for parallel processing and number of cores in the system should be entered. If you wish to run on all cores, value should not be entered and algorithm will detect automatically
-    
-    
-### Booster parameters (gbtree)
+### Booster parameters \(gbtree\)
 
 Though there are 2 types of boosters, I’ll consider only tree booster here because it always outperforms the linear booster and thus the later is rarely used.
 
@@ -85,39 +79,26 @@ A value greater than 0 should be used in case of high class imbalance as it help
 
 These parameters are used to define the optimization objective the metric to be calculated at each step.
 
-- objective [default=reg:linear]
-This defines the loss function to be minimized. Mostly used values are:
-    - binary:logistic –logistic regression for binary classification, returns predicted probability (not class)
-    - multi:softmax –multiclass classification using the softmax objective, returns predicted class (not probabilities)
-you also need to set an additional num_class (number of classes) parameter defining the number of unique classes
-    - multi:softprob –same as softmax, but returns predicted probability of each data point belonging to each class.
+* objective \[default=reg:linear\] This defines the loss function to be minimized. Mostly used values are:
+  * binary:logistic –logistic regression for binary classification, returns predicted probability \(not class\)
+  * multi:softmax –multiclass classification using the softmax objective, returns predicted class \(not probabilities\)
 
-- eval_metric [ default according to objective ]
-The metric to be used for validation data.
-The default values are rmse for regression and error for classification.
-Typical values are:
-    - rmse – root mean square error
-    - mae – mean absolute error
-    - logloss – negative log-likelihood
-    - error – Binary classification error rate (0.5 threshold)
-    - merror – Multiclass classification error rate
-    - mlogloss – Multiclass logloss
-    - auc: Area under the curve
+    you also need to set an additional num\_class \(number of classes\) parameter defining the number of unique classes
 
-- seed [default=0]
-The random number seed.
-Can be used for generating reproducible results and also for parameter tuning.
-
-
----
+  * multi:softprob –same as softmax, but returns predicted probability of each data point belonging to each class.
+* eval\_metric \[ default according to objective \] The metric to be used for validation data. The default values are rmse for regression and error for classification. Typical values are:
+  * rmse – root mean square error
+  * mae – mean absolute error
+  * logloss – negative log-likelihood
+  * error – Binary classification error rate \(0.5 threshold\)
+  * merror – Multiclass classification error rate
+  * mlogloss – Multiclass logloss
+  * auc: Area under the curve
+* seed \[default=0\] The random number seed. Can be used for generating reproducible results and also for parameter tuning.
 
 If you’ve been using Scikit-Learn till now, these parameter names might not look familiar. A good news is that xgboost module in python has an sklearn wrapper called XGBClassifier. It uses sklearn style naming convention. The parameters names which will change are:
 
-eta –> learning_rate
-lambda –> reg_lambda
-alpha –> reg_alpha
-You must be wondering that we have defined everything except something similar to the “n_estimators” parameter in GBM. Well this exists as a parameter in XGBClassifier. However, it has to be passed as “num_boosting_rounds” while calling the fit function in the standard xgboost implementation.
-
+eta –&gt; learning\_rate lambda –&gt; reg\_lambda alpha –&gt; reg\_alpha You must be wondering that we have defined everything except something similar to the “n\_estimators” parameter in GBM. Well this exists as a parameter in XGBClassifier. However, it has to be passed as “num\_boosting\_rounds” while calling the fit function in the standard xgboost implementation.
 
 
 ### Other recommendations
@@ -190,7 +171,7 @@ Al procesar datos desbalanceados es recomendable que utilizar `scoring='balanced
 
 ## References
 
-- [Code](https://xgboost.readthedocs.io/en/latest/tutorials/model.html) , [Python API Reference](https://xgboost.readthedocs.io/en/latest/python/python_api.html)
-- [Paper](https://arxiv.org/pdf/1603.02754.pdf)
-- [Winning solution for](https://github.com/dmlc/xgboost/tree/master/demo#machine-learning-challenge-winning-solutions)
+* [Code](https://xgboost.readthedocs.io/en/latest/tutorials/model.html) , [Python API Reference](https://xgboost.readthedocs.io/en/latest/python/python_api.html)
+* [Paper](https://arxiv.org/pdf/1603.02754.pdf)
+* [Winning solution for](https://github.com/dmlc/xgboost/tree/master/demo#machine-learning-challenge-winning-solutions)
 
