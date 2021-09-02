@@ -142,6 +142,18 @@ kubectl rollout history deploy DEPLOYNAME -n NAMESPACE --revision=REVISION_NUMBE
 
 > Revisions used for rollback are available as their new revision instead of their original.
 
+**Access a pod shell**
+
+```bash
+kubectl exec --stdin --tty POD_NAME -- /bin/bash
+```
+
+**Restart a deployment**
+
+```bash
+kubectl rollout restart deployments/DEPLOYMENT_NAME
+```
+
 
 
 ![image-20210702225147344](/home/w/.config/Typora/typora-user-images/image-20210702225147344.png)
