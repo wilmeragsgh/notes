@@ -12,6 +12,8 @@ description: ML knowledge and experiences
 
 ## Some ideas
 
+- **Exploratory data analysis should be perfomed on the training dataset** only.
+
 ### Style transfer on text
 
 * [GitHub - fuzhenxin/Style-Transfer-in-Text: Paper List for Style Transfer in Text](https://github.com/fuzhenxin/Style-Transfer-in-Text)
