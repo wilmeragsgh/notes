@@ -13,6 +13,10 @@ description: ML knowledge and experiences
 ## Some ideas
 
 - **Exploratory data analysis should be perfomed on the training dataset** only.
+- It is usually **not a good idea** to drop features without knowing what information they contain.
+- **Infer the data schema from only the training dataset**.
+- it is also important that the **features of the evaluation data belong roughly to the same range as the training data**.
+- Drift and skew is expressed in terms of [L-infinity distance](https://en.wikipedia.org/wiki/Chebyshev_distance) which evaluates the difference between vectors as the greatest of the differences along any coordinate dimension. You can set the threshold distance so that you receive warnings when the drift is higher than is acceptable. Setting the correct distance is typically an iterative process requiring domain knowledge and experimentation.
 
 ### Style transfer on text
 
