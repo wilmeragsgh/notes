@@ -268,7 +268,9 @@ print('Tensorflow Version: {}'.format(tf.__version__))
 
 ```python
 # Generate training dataset statistics
-train_stats = tfdv.generate_statistics_from_dataframe(train_df)
+# the line below can be used for selecting which columns we want to calculate metrics on
+# stats_options = tfdv.StatsOptions(feature_whitelist=approved_cols)
+train_stats = tfdv.generate_statistics_from_dataframe(train_df, stats_options)
 ```
 
 **Visualize statistics**
@@ -331,6 +333,9 @@ occupation_feature.distribution_constraints.min_domain_mass = 0.9
 # Add new value to the domain of the feature `race`
 race_domain = tfdv.get_domain(schema, 'race')
 race_domain.value.append('Asian')
+
+# or complete substitution of a feature domain to the domain of another
+tfdv.set_domain(schema, feature, to_domain_name)
 ```
 
 **Manual set of range for int values**
@@ -342,6 +347,41 @@ tfdv.set_domain(schema, 'age', schema_pb2.IntDomain(name='age', min=17, max=90))
 # Display the modified schema. Notice the `Domain` column of `age`.
 tfdv.display_schema(schema)
 ```
+
+**Data environments**
+
+```python
+schema.default_environment.append('TRAINING')
+schema.default_environment.append('SERVING')
+
+# If we want to remove a feature from a given environment (sample)
+tfdv.get_feature(schema, 'readmitted').not_in_environment.append('SERVING')
+```
+
+**Data drift and skew**
+
+```python
+diabetes_med = tfdv.get_feature(schema, 'diabetesMed')
+# domain knowledge helps to determine this threshold
+diabetes_med.skew_comparator.infinity_norm.threshold = 0.03
+
+skew_drift_anomalies = tfdv.validate_statistics(train_stats, schema,
+                                          previous_statistics=eval_stats,
+                                         serving_statistics=serving_stats)
+tfdv.display_anomalies(skew_drift_anomalies)
+
+```
+
+**Freeze schema**
+
+```python
+schema_file = os.path.join(OUTPUT_DIR, 'schema.pbtxt')
+
+# write_schema_text function expect the defined schema and output path as parameters
+tfdv.write_schema_text(schema, schema_file)
+```
+
+
 
 **Data slicing**
 
