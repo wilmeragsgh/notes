@@ -152,10 +152,10 @@ df.loc[~df['column_name'].isin(some_values)]
 df = df.set_index(['colname'])
 ```
 
-**Remove duplicates**
+**Remove duplicates** (distinct)
 
 ```python
-df.drop_duplicates()
+df.drop_duplicates()# subset=["col1", "col2"] use only those columns for distinction
 ```
 
 **Check if a field exists**
