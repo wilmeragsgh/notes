@@ -23,3 +23,26 @@ description: AI Knowledge and experiences
 
 * [http://vita.had.co.nz/papers/tidy-data.html](http://vita.had.co.nz/papers/tidy-data.html)
 
+
+
+### Cheatsheet
+
+- https://www.business-science.io/learning-python/2018/11/18/data-science-python-cheatsheet.html?utm_source=pocket-app&utm_medium=share
+
+- https://policyviz.com/2018/08/07/dataviz-cheatsheet/?utm_source=pocket-app&utm_medium=share
+- https://www.kdnuggets.com/2018/08/data-visualization-cheatsheet.html?utm_source=pocket-app&utm_medium=share
+- https://hackernoon.com/deep-learning-cheat-sheet-25421411e460?utm_source=pocket-app&utm_medium=share
+- https://medium.com/towards-data-science/linear-algebra-cheat-sheet-for-deep-learning-cd67aba4526c?utm_source=pocket-app&utm_medium=share
+- https://machinelearningmastery.com/linear-algebra-cheat-sheet-for-machine-learning/?utm_source=pocket-app&utm_medium=share
+- http://www.datasciencecentral.com/profiles/blogs/deep-learning-cheat-sheet-using-python-libraries?utm_source=pocket-app&utm_medium=share
+- http://www.datasciencecentral.com/profiles/blogs/140-machine-learning-formulas?utm_source=pocket-app&utm_medium=share
+- https://www.analyticsvidhya.com/blog/2017/02/top-28-cheat-sheets-for-machine-learning-data-science-probability-sql-big-data/?utm_source=pocket-app&utm_medium=share
+- http://www.kdnuggets.com/2016/12/data-science-machine-learning-cheat-sheets-updated.html?utm_source=pocket-app&utm_medium=share
+- https://medium.com/@kailashahirwar/essential-cheat-sheets-for-machine-learning-and-deep-learning-researchers-efb6a8ebd2e5?utm_source=pocket-app&utm_medium=share
+- https://machinelearningmastery.com/statistical-hypothesis-tests-in-python-cheat-sheet/?utm_source=pocket-app&utm_medium=share
+- https://stanford.edu/~shervine/teaching/cs-229/cheatsheet-supervised-learning.html?utm_source=pocket-app&utm_medium=share
+- https://stanford.edu/~shervine/teaching/cs-229/cheatsheet-deep-learning.html?utm_source=pocket-app&utm_medium=share
+- https://stanford.edu/~shervine/teaching/cs-229/cheatsheet-unsupervised-learning.html?utm_source=pocket-app&utm_medium=share
+- https://github.com/afshinea/stanford-cs-229-machine-learning?utm_source=pocket-app&utm_medium=share
+- https://stanford.edu/~shervine/teaching/cs-229/cheatsheet-machine-learning-tips-and-tricks.html?utm_source=pocket-app&utm_medium=share
+- https://www.analyticsvidhya.com/blog/2018/12/best-data-science-machine-learning-projects-github/?utm_source=pocket-app&utm_medium=share
