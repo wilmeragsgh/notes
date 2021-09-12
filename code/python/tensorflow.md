@@ -427,3 +427,93 @@ tfdv.visualize_statistics(
     rhs_name=female_stats_name
 )
 ```
+
+
+
+**Generate tensorflow data directory**
+
+```python
+import os
+import shutil
+import csv
+
+from sklearn.model_selection import train_test_split
+
+def text_dataframe_to_tf_dir(df: pd.DataFrame, target_dir: str, label_col_ix: int = -1, value_col_ix: int = 0, train_split: float = 0.7, validation_split: float = 0.15, test_split: float = 0.15) -> None:
+    """Generate a training data for tensorflow directory format
+
+        The training data generated is meant to be loaded from tensorflow as follows:
+
+
+        Args:
+            (pd.DataFrame) df: Dataframe containing the text data for the model in the format of 'value\tlabel'.
+            (str) target_dir: Target directory to place the formatted data.
+            (int) label_col_ix: Label column to use for the directory generation.
+            (int) value_col_ix: Value column to be written in the text files.
+            (float) train_split: Percentage of data to be placed in the train subdir.
+            (float) validation_split: Percentage of data to be placed in the valid subdir, only used if test_split and validation_split are not None.
+            (float) test_split: Percentage of data to be placed in the test subdir.
+
+        Returns:
+            (None)
+
+        Raises:
+            IndexError: Column index for label column is out of columns boundaries.
+    """
+    try:
+        label_col = df.columns[label_col_ix]
+    except IndexError:
+        raise IndexError(f'Column index "{label_col_ix}" is out of boundaries.')
+
+    try:
+        value_col = df.columns[value_col_ix]
+    except IndexError:
+        raise IndexError(f'Column index "{label_col_ix}" is out of boundaries.')
+
+    if os.path.exists(target_dir):
+        shutil.rmtree(target_dir)
+    os.makedirs(target_dir)
+
+    if train_split is not None:
+        if test_split is not None:
+            if validation_split is not None:
+                val_test_split = validation_split + test_split
+                train_set, test_set = train_test_split(df, test_size=val_test_split, random_state=42, stratify=df[label_col])
+                validation_split = validation_split / val_test_split
+                test_set, validation_set = train_test_split(test_set, test_size=validation_split, random_state=42, stratify=test_set[label_col])
+                splits = [('train', train_set), ('test', test_set), ('validation', validation_set)]
+            else:
+                train_set, test_set = train_test_split(df, test_size=test_split, random_state=42, stratify=df[label_col])
+                splits = [('train', train_set), ('test', test_set)]
+        else:
+            splits = [('train', df)]
+    else:
+        return
+
+
+    for split_name, split_data in splits:
+        print(f'Processing split "{split_name}"')
+        split_dir = os.path.join(target_dir, split_name)
+        os.makedirs(split_dir)
+        for name, label_data in split_data.groupby(label_col):
+            print(f'Processing label "{name}" for split {split_name}')
+            label_dir = os.path.join(split_dir, str(name))
+            os.makedirs(label_dir)
+            for ix, obs in enumerate(label_data[value_col].tolist()):
+                with open(os.path.join(label_dir, f'{name}_{ix}.txt'), 'w') as fl:
+                    fl.write(obs)
+```
+
+The snippet above is meant to be loaded with [keras](https://www.tensorflow.org/api_docs/python/tf/keras/utils/text_dataset_from_directory) as follows:
+
+```python
+tf.keras.utils.text_dataset_from_directory(
+    directory, labels='inferred', label_mode='int',
+    class_names=None, batch_size=32, max_length=None, shuffle=True, seed=None,
+    validation_split=None, subset=None, follow_links=False
+)
+```
+
+**References**
+
+- https://www.tensorflow.org/api_docs/python/tf/
