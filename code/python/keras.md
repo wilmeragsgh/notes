@@ -79,4 +79,5 @@ Lambda(lambda x: x[:, t, :])(X)
 ## References
 
 * [Keras Transfer Learning For Beginners – Towards Data Science](https://towardsdatascience.com/keras-transfer-learning-for-beginners-6c9b8b7143e)
+* https://www.datacamp.com/community/blog/keras-cheat-sheet
 
