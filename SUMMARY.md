@@ -1,14 +1,10 @@
 # Table of contents
 
 * [Home](README.md)
-
 * [Social](social/README.md)
-
 * [Cloud](cloud/README.md)
     * [Aws](cloud/aws/README.md)
-
 * [Stats](stats/README.md)
-
 * [Code](code/README.md)
     * [Scrum](code/scrum.md)
     * [Ssh](code/ssh.md)
@@ -55,29 +51,24 @@
         * [Gitflow](code/git/gitflow.md)
     * [R](code/r/README.md)
         * [Lpsolve](code/r/lpsolve.md)
-
 * [Indie-hacker](indie-hacker/README.md)
-
 * [Thoughts](thoughts/README.md)
-    * [On recruitment processes](thoughts/on-recruitment-processes.md)
+    * [Health](thoughts/health.md)
+    * [Work](thoughts/work.md)
     * [Relationships](thoughts/relationships.md)
     * [On the need of expressiveness](thoughts/on-the-need-of-expressiveness.md)
     * [On organizing knowledge](thoughts/on-organizing-knowledge.md)
     * [On the importance of questions](thoughts/on-the-importance-of-questions.md)
-
 * [Linux](linux/README.md)
     * [Vim](linux/vim.md)
     * [Tmux](linux/tmux.md)
-
 * [Webdev](webdev/README.md)
     * [Vue](webdev/vue/README.md)
-
 * [Readings](readings/README.md)
     * [Psychology](readings/psychology.md)
     * [Habits](readings/habits.md)
     * [Projects management](readings/projects_management.md)
     * [Quotes](readings/quotes.md)
-
 * [Ai](ai/README.md)
     * [Ml](ai/ml/README.md)
         * [Xgboost](ai/ml/xgboost.md)
@@ -88,3 +79,4 @@
             * [Sagemaker](ai/ml/cloud_platforms/sagemaker.md)
         * [Unsupervised_learning](ai/ml/unsupervised_learning/README.md)
     * [Nlp](ai/nlp/README.md)
+    * [DS](ai/ds/README.md)
