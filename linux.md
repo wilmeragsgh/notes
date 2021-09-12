@@ -96,3 +96,9 @@ sudo add-apt-repository ppa:name/here
 # --remove flag for removing
 ```
 
+
+
+## Resources
+
+- https://github.com/yudai/gotty
+- https://github.com/stitchfix/flotilla-os

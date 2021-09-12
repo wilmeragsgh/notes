@@ -29,6 +29,7 @@
 - https://www.btw.so/open-source-alternatives
 - https://tailblocks.cc/
 - https://devdojo.com/tails/app#_
+- http://fancyhands.com/
 
 
 
