@@ -52,6 +52,8 @@
     * [R](code/r/README.md)
         * [Lpsolve](code/r/lpsolve.md)
 * [Indie-hacker](indie-hacker/README.md)
+* [Macos](macos/README.md)
+* [Interesting](interesting/README.md)
 * [Thoughts](thoughts/README.md)
     * [Health](thoughts/health.md)
     * [Work](thoughts/work.md)
