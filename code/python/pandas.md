@@ -116,6 +116,12 @@ df.loc[df['column_name'] == some_value]
 df.loc[df['column_name'].isin(some_values)]
 ```
 
+**To select  rows whose column value is in another column array**
+
+```python
+df.apply(lambda x: x['Responsibility Type'] in x['Roles'], axis=1)
+```
+
 **Combine multiple conditions with &:**
 
 ```python
