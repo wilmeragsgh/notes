@@ -118,20 +118,33 @@ parqDF.createOrReplaceTempView("Table2")
 df = spark.sql("select * from Table2  where gender='M' and salary >= 4000")
 ```
 
-**Sample rows**
+**Stratified sample**
 
 ```python
-df.sample(fraction=prop, seed=42)
-# stratified: 
-strat_dict = {} # proportion to sample by each 
-df.sampleBy(colname, strat_dict, seed=42)
+fractions = df.select(c.strat_column).distinct().withColumn("fraction", F.lit(prop)).rdd.collectAsMap() # prop like 0.2
+print(fractions)
+# {2147481832: 0.8, 214748183: 0.8}
+df_sampled = df.stat.sampleBy("strat_column", fractions, seed)
+df_sampled.count()
 ```
+
+
 
 **Transform to dict**
 
 ```python
 result_data[0].asDict()
 ```
+
+**Filter columns with/without nulls**
+
+```python
+df.where(col("A").isNull())
+
+df.where(col("A").isNotNull())
+```
+
+
 
 **Group by**
 
@@ -148,6 +161,17 @@ df.groupBy("colname").sum().show()
 # agg({"revenue_sales":"max"}) it's also valid
 # order:
 # orderBy("revenue_sales")
+```
+
+**Group by column A keep the rows that are max according to column B**
+
+```python
+from pyspark.sql import Window
+w = Window.partitionBy('A')
+df.withColumn('maxB', f.max('B').over(w))\
+    .where(f.col('B') == f.col('maxB'))\
+    .drop('maxB')\
+    .show()
 ```
 
 **Example classification**
