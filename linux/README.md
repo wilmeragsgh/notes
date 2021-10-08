@@ -78,6 +78,7 @@ sudo apt-get install typora
 * [aws-cli](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html)
 * xournal
 * [zoom](https://zoom.us/download?os=linux)
+* [datashare](https://datashare.icij.org/)
 
 ### Web tools
 
