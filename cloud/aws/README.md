@@ -10,6 +10,12 @@
 aws s3 sync s3://oldbucket s3://newbucket --source-region us-west-1 --region us-west-2
 ```
 
+**Copy directory**
+
+```bash
+ aws s3 cp s3://big-datums-tmp/myFolder/ ./ --recursive
+```
+
 
 
 
