@@ -224,6 +224,14 @@ data.groupby(data.date.dt.year)
 df.groupby('location')['user'].nunique()
 ```
 
+**Get normalized values from groupby count**
+
+```python
+df2 = df.groupby(['subset_product', 'subset_close']).size().reset_index(name='prod_count')
+a = df2.groupby('subset_product')['prod_count'].transform('sum')
+df2['prod_count'] = df2['prod_count'].div(a)
+```
+
 **Generate csv from dataframe**
 
 ```python
