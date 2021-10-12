@@ -63,6 +63,12 @@ df.withColumns('new_col',col_value)
 df.show()
 ```
 
+**Print descriptive statistics for dataframe**
+
+```python
+df.describe().show()
+```
+
 **Apply SQL to dataframe**
 
 ```python
@@ -73,6 +79,8 @@ sql_result_1.show()
 ```
 
 **Filter rows**
+
+Result will be a spark dataframe
 
 ```python
 df.filter("total_amount > 1000").collect()
@@ -173,6 +181,49 @@ df.withColumn('maxB', f.max('B').over(w))\
     .drop('maxB')\
     .show()
 ```
+
+**Order by**
+
+```python
+df.orderBy("revenue_sales").show(5)
+# or df.orderBy(df["revenue_sales"].desc()).show(5)
+```
+
+**Alias**
+
+This help us complement the `withColumn` functionality in cases where the computation is result of spark transformation.
+
+```python
+df.select(avg(“revenue_sales”).alias(“Average”).show()
+```
+
+**Null processing**
+
+_Remove all rows with at least a null value_
+
+```python
+df.na.drop(how='all')
+```
+
+_Remove rows with a least X number of non-null values_
+
+```python
+df.na.drop(thresh=2).show() # 2 non-null values
+```
+
+_Check only given columns_
+
+```python
+df.na.drop(subset=['col1','col2']).show()
+```
+
+_Fill na values_
+
+```python
+df.na.fill(new_value,subset=['col1', 'col2'])
+```
+
+
 
 **Example classification**
 
