@@ -514,6 +514,359 @@ tf.keras.utils.text_dataset_from_directory(
 )
 ```
 
+**Feature preprocessing**
+
+Metadata definition
+
+```python
+import tensorflow as tf
+from tensorflow_transform.tf_metadata import dataset_metadata
+from tensorflow_transform.tf_metadata import schema_utils
+
+# define the schema as a DatasetMetadata object
+raw_data_metadata = dataset_metadata.DatasetMetadata(
+    
+    # use convenience function to build a Schema protobuf
+    schema_utils.schema_from_feature_spec({
+        
+        # define a dictionary mapping the keys to its feature spec type
+        'y': tf.io.FixedLenFeature([], tf.float32),
+        'x': tf.io.FixedLenFeature([], tf.float32),
+        's': tf.io.FixedLenFeature([], tf.string),
+    }))
+```
+
+Sample preprocessing function
+
+```python
+def preprocessing_fn(inputs):
+    """Preprocess input columns into transformed columns."""
+    
+    # extract the columns and assign to local variables
+    x = inputs['x']
+    y = inputs['y']
+    s = inputs['s']
+    
+    # data transformations using tft functions
+    x_centered = x - tft.mean(x)
+    y_normalized = tft.scale_to_0_1(y)
+    s_integerized = tft.compute_and_apply_vocabulary(s)
+    x_centered_times_y_normalized = (x_centered * y_normalized)
+    
+    # return the transformed data
+    return {
+        'x_centered': x_centered,
+        'y_normalized': y_normalized,
+        's_integerized': s_integerized,
+        'x_centered_times_y_normalized': x_centered_times_y_normalized,
+    }
+```
+
+Generate a constant graph with the required transformations
+
+```python
+# Ignore the warnings
+tf.get_logger().setLevel('ERROR')
+
+# a temporary directory is needed when analyzing the data
+with tft_beam.Context(temp_dir=tempfile.mkdtemp()):
+    
+    # define the pipeline using Apache Beam syntax
+    transformed_dataset, transform_fn = (
+        
+        # analyze and transform the dataset using the preprocessing function
+        (raw_data, raw_data_metadata) | tft_beam.AnalyzeAndTransformDataset(
+            preprocessing_fn)
+    )
+
+# unpack the transformed dataset
+transformed_data, transformed_metadata = transformed_dataset
+```
+
+**Run tf pipeline**
+
+```python
+# Initialize the InteractiveContext with a local sqlite file.
+# If you leave `_pipeline_root` blank, then the db will be created in a temporary directory.
+from tfx.orchestration.experimental.interactive.interactive_context import InteractiveContext
+
+context = InteractiveContext(pipeline_root=_pipeline_root)
+```
+
+read csv file 
+
+`_data_root` can be csv, tf.Record and BigQuery.
+
+```python
+from tfx.components import CsvExampleGen
+
+# Instantiate ExampleGen with the input CSV dataset
+example_gen = CsvExampleGen(input_base=_data_root)
+context.run(example_gen)
+```
+
+Inspect generated artifact
+
+It will keep each run associated with an ID for that execution for debugging
+
+```python
+# get the artifact object
+artifact = example_gen.outputs['examples'].get()[0]
+
+# print split names and uri
+print(f'split names: {artifact.split_names}')
+print(f'artifact uri: {artifact.uri}')
+```
+
+**Read and print tf.Record files**
+
+```python
+train_uri = os.path.join(artifact.uri, 'train')
+
+# Get the list of files in this directory (all compressed TFRecord files)
+tfrecord_filenames = [os.path.join(train_uri, name)
+                      for name in os.listdir(train_uri)]
+
+# Create a `TFRecordDataset` to read these files
+dataset = tf.data.TFRecordDataset(tfrecord_filenames, compression_type="GZIP")
+```
+
+```python
+from google.protobuf.json_format import MessageToDict
+
+def get_records(dataset, num_records):
+    '''Extracts records from the given dataset.
+    Args:
+        dataset (TFRecordDataset): dataset saved by ExampleGen
+        num_records (int): number of records to preview
+    '''
+    
+    # initialize an empty list
+    records = []
+    
+    # Use the `take()` method to specify how many records to get
+    for tfrecord in dataset.take(num_records):
+        
+        # Get the numpy property of the tensor
+        serialized_example = tfrecord.numpy()
+        
+        # Initialize a `tf.train.Example()` to read the serialized data
+        example = tf.train.Example()
+        
+        # Read the example data (output is a protocol buffer message)
+        example.ParseFromString(serialized_example)
+        
+        # convert the protocol buffer message to a Python dictionary
+        example_dict = (MessageToDict(example))
+        
+        # append to the records list
+        records.append(example_dict)
+        
+    return records
+```
+
+Sample usage
+
+```python
+import pprint
+pp = pprint.PrettyPrinter()
+
+# Get 3 records from the dataset
+sample_records = get_records(dataset, 3)
+
+# Print the output
+pp.pprint(sample_records)
+```
+
+**Generate statistics for a given dataset**
+
+```python
+from tfx.components import StatisticsGen
+
+# Instantiate StatisticsGen with the ExampleGen ingested dataset
+statistics_gen = StatisticsGen(
+    examples=example_gen.outputs['examples'])
+# example_gen from above
+
+# Execute the component
+context.run(statistics_gen)
+```
+
+Show the statistics
+
+```python
+context.show(statistics_gen.outputs['statistics'])
+```
+
+**Infer schema for a given dataset**
+
+```python
+from tfx.components import SchemaGen
+# Instantiate SchemaGen with the StatisticsGen ingested dataset
+schema_gen = SchemaGen(
+    statistics=statistics_gen.outputs['statistics'],
+    )
+
+# Run the component
+context.run(schema_gen)
+```
+
+Show schema
+
+```python
+context.show(schema_gen.outputs['schema'])
+```
+
+**Detect anomalies for a given dataset**
+
+```python
+# Instantiate ExampleValidator with the StatisticsGen and SchemaGen ingested data
+example_validator = ExampleValidator(
+    statistics=statistics_gen.outputs['statistics'],
+    schema=schema_gen.outputs['schema'])
+
+# Run the component.
+context.run(example_validator)
+```
+
+Show anomalies (if any)
+
+```python
+context.show(example_validator.outputs['anomalies'])
+```
+
+**Apply transformations to a given dataset**
+
+Transformations need to be passed as modules to tfx a common pattern is to have a constant file as follows
+
+```python
+# Features with string data types that will be converted to indices
+CATEGORICAL_FEATURE_KEYS = [
+    'education', 'marital-status', 'occupation', 'race', 'relationship', 'workclass', 'sex', 'native-country'
+]
+
+# Numerical features that are marked as continuous
+NUMERIC_FEATURE_KEYS = ['fnlwgt', 'education-num', 'capital-gain', 'capital-loss', 'hours-per-week']
+
+# Feature that can be grouped into buckets
+BUCKET_FEATURE_KEYS = ['age']
+
+# Number of buckets used by tf.transform for encoding each bucket feature.
+FEATURE_BUCKET_COUNT = {'age': 4}
+
+# Feature that the model will predict
+LABEL_KEY = 'label'
+
+# Utility function for renaming the feature
+def transformed_name(key):
+    return key + '_xf'
+```
+
+Then, having the following sample processing function in a file
+
+`_census_transform_module_file = 'census_transform.py'`
+
+```python
+import tensorflow as tf
+import tensorflow_transform as tft
+
+import census_constants # this is the constants file from above
+
+# Unpack the contents of the constants module
+_NUMERIC_FEATURE_KEYS = census_constants.NUMERIC_FEATURE_KEYS
+_CATEGORICAL_FEATURE_KEYS = census_constants.CATEGORICAL_FEATURE_KEYS
+_BUCKET_FEATURE_KEYS = census_constants.BUCKET_FEATURE_KEYS
+_FEATURE_BUCKET_COUNT = census_constants.FEATURE_BUCKET_COUNT
+_LABEL_KEY = census_constants.LABEL_KEY
+_transformed_name = census_constants.transformed_name
+
+
+# Define the transformations
+def preprocessing_fn(inputs):
+    """tf.transform's callback function for preprocessing inputs.
+    Args:
+        inputs: map from feature keys to raw not-yet-transformed features.
+    Returns:
+        Map from string feature key to transformed feature operations.
+    """
+    outputs = {}
+
+    # Scale these features to the range [0,1]
+    for key in _NUMERIC_FEATURE_KEYS:
+        outputs[_transformed_name(key)] = tft.scale_to_0_1(
+            inputs[key])
+    
+    # Bucketize these features
+    for key in _BUCKET_FEATURE_KEYS:
+        outputs[_transformed_name(key)] = tft.bucketize(
+            inputs[key], _FEATURE_BUCKET_COUNT[key],
+            always_return_num_quantiles=False)
+
+    # Convert strings to indices in a vocabulary
+    for key in _CATEGORICAL_FEATURE_KEYS:
+        outputs[_transformed_name(key)] = tft.compute_and_apply_vocabulary(inputs[key])
+
+    # Convert the label strings to an index
+    outputs[_transformed_name(_LABEL_KEY)] = tft.compute_and_apply_vocabulary(inputs[_LABEL_KEY])
+
+    return outputs
+```
+
+we will pass it to the transform function as follows:
+
+```python
+from tfx.components import Transform
+
+# Ignore TF warning messages
+tf.get_logger().setLevel('ERROR')
+
+# Instantiate the Transform component
+transform = Transform(
+    examples=example_gen.outputs['examples'],
+    schema=schema_gen.outputs['schema'],
+    module_file=os.path.abspath(_census_transform_module_file))
+
+
+
+# Run the component
+context.run(transform)
+```
+
+This execution will produce (in `.component.outputs`):
+
+* `transform_graph` is the graph that can perform the preprocessing operations. This graph will be included during training and serving to ensure consistent transformations of incoming data.
+* `transformed_examples` points to the preprocessed training and evaluation data.
+* `updated_analyzer_cache` are stored calculations from previous runs.
+
+
+
+`transform_graph` for example would have (in `transform.outputs['transform_graph'].get()[0].uri`):
+
+* The `metadata` subdirectory contains the schema of the original data.
+* The `transformed_metadata` subdirectory contains the schema of the preprocessed data. 
+* The `transform_fn` subdirectory contains the actual preprocessing graph. 
+
+A sample of transformed data can be retrieved with
+
+```python
+train_uri = os.path.join(transform.outputs['transformed_examples'].get()[0].uri, 'train')
+
+# Get the list of files in this directory (all compressed TFRecord files)
+tfrecord_filenames = [os.path.join(train_uri, name)
+                      for name in os.listdir(train_uri)]
+
+# Create a `TFRecordDataset` to read these files
+transformed_dataset = tf.data.TFRecordDataset(tfrecord_filenames, compression_type="GZIP")
+
+# Get 3 records from the dataset
+sample_records_xf = get_records(transformed_dataset, 3)
+
+# Print the output
+pp.pprint(sample_records_xf)
+```
+
+
+
 **References**
 
 - https://www.tensorflow.org/api_docs/python/tf/
