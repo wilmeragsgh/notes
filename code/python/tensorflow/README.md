@@ -12,8 +12,6 @@ description: Frequently used code for tensorflow related code snippets
 * Create a Session.
 * Run the Session. This will run the operations you'd written above.
 
-> Tensorflow has a lot of functions already implemented
-
 ## One-liners
 
 * `tf.sigmoid`
@@ -218,6 +216,8 @@ my_new_model.fit_generator(
 ```
 
 #### TPU usage
+
+> Works for colab
 
 ```python
 %tensorflow_version 2.x
