@@ -34,6 +34,11 @@ description: Frecuently used techniques for performance evaluation
   * K between 5 and 10 folds.
 * **Comment:** An **stratified** version of it is recommended given that it tries to hold the same proportions of the whole dataset.
 
+**Cross entropy vs sparse cross entropy**
+If your `Y_i`'s are one-hot encoded, use categorical_crossentropy. Examples (for a 3-class classification): [1,0,0] , [0,1,0], [0,0,1]
+
+But if your `Y_i`'s are integers, use sparse_categorical_crossentropy. Examples for above 3-class classification problem: [1] , [2], [3]. Might be more memory efficient
+
 ## References:
 
 * [https://www.statology.org/k-fold-cross-validation/](https://www.statology.org/k-fold-cross-validation/)

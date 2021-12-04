@@ -4,7 +4,7 @@ description: Some thoughts and resources on data science
 
 # Data science
 
-
+#tech
 
 ## Resources
 

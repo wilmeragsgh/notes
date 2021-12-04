@@ -193,6 +193,14 @@ df = pd.concat([df, dfDummies], axis=1)
 df = df.rename(columns={"A": "a", "B": "c"})
 ```
 
+**Rename index names**
+
+```python
+df.index.names = ['new_name']
+```
+
+
+
 **Remove column from list**
 
 ```python

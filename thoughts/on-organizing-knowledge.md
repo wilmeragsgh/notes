@@ -69,7 +69,7 @@ This type of information is based on premises that may or may not be prone to ch
 
 
 
-#### By scope of usage
+#### By scope of usage (and format)
 
 **Theory**
 

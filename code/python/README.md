@@ -192,6 +192,15 @@ a = numpy.array([0, 3, 0, 1, 0, 1, 2, 1, 0, 0, 0, 0, 1, 3, 4])
 unique, counts = numpy.unique(a, return_counts=True)
 dict(zip(unique, counts))
 #{0: 7, 1: 4, 2: 1, 3: 2, 4: 1}
+
+# OR
+
+import numpy as np
+x = np.array([1,1,1,2,2,2,5,25,1,1])
+y = np.bincount(x)
+ii = np.nonzero(y)[0]
+
+zip(ii, y[ii])	
 ```
 
 **Passing parameters with dictionaries**
@@ -397,11 +406,13 @@ As a reminder, your package should be placed in a folder with the following fold
 
 ## References
 
+* https://www.infoworld.com/article/3563878/how-to-use-python-dataclasses.html
+* https://docs.python.org/3/library/dataclasses.html
 * [https://google.github.io/styleguide/pyguide.html](https://google.github.io/styleguide/pyguide.html)
 * [https://github.com/PyCQA/pycodestyle](https://github.com/PyCQA/pycodestyle)
 * [https://docs.pytest.org/en/latest/](https://docs.pytest.org/en/latest/)
 * [https://realpython.com/documenting-python-code/](https://realpython.com/documenting-python-code/)
-* [The Python Graph Gallery – Visualizing data – with Python](https://python-graph-gallery.com)
+* [The Python Graph Gallery – Data Visualization– with Python](https://python-graph-gallery.com)
 * [Awesome distributed deep learning](https://github.com/bharathgs/Awesome-Distributed-Deep-Learning)
 * [https://www.toptal.com/flask/flask-production-recipes](https://www.toptal.com/flask/flask-production-recipes)
 * [https://levelup.gitconnected.com/deploy-your-machine-learning-model-as-a-rest-api-on-aws-english-dcb1a0db3110](https://levelup.gitconnected.com/deploy-your-machine-learning-model-as-a-rest-api-on-aws-english-dcb1a0db3110)

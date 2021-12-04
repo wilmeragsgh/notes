@@ -78,6 +78,14 @@ print("Showing the results of the select query")
 sql_result_1.show()
 ```
 
+**Return a new row per each element in an array in column**
+
+```python
+from pyspark.sql import Row
+df = spark.createDataFrame([Row(a=1, intlist=[1,2,3], mapfield={"a": "b"})])
+df.select(explode(eDF.intlist).alias("anInt")).collect()
+```
+
 **Filter rows**
 
 Result will be a spark dataframe
@@ -85,6 +93,18 @@ Result will be a spark dataframe
 ```python
 df.filter("total_amount > 1000").collect()
 # or df.filter(df["total_amount"] > 1000).collect()
+```
+
+**Match rows with regex**
+
+```python
+df.where(F.col("text_col").rlike(r'hello world'))
+```
+
+**Create empty columns with type**
+
+```python
+df.withColumn('new_column', F.lit(None).cast(T.StringType()))
 ```
 
 **detect null values in column**
@@ -180,6 +200,13 @@ df.withColumn('maxB', f.max('B').over(w))\
     .where(f.col('B') == f.col('maxB'))\
     .drop('maxB')\
     .show()
+```
+
+**Group by (count nulls)**
+
+```python
+# within the group by
+F.col('col').isNull().cast("int")
 ```
 
 **Order by**

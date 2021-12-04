@@ -9,10 +9,19 @@ description: Frecuently used Matplotlib code
 **Make the plot larger in notebook**
 
 ```python
+# one off
 # In the chunk you want to plot
 import matplotlib.pyplot as plt
 fig=plt.figure(figsize=(18, 16), dpi= 80, facecolor='w', edgecolor='k')
 ```
+
+```python
+# new default
+import matplotlib.pyplot as plt
+plt.rcParams['figure.figsize'] = [18, 16]
+```
+
+
 
 **Correlation plot**
 

@@ -27,8 +27,9 @@ description: AI Knowledge and experiences
 
 ### Cheatsheet
 
+- https://datavizcatalogue.com/search.html
+- https://www.edwardtufte.com/tufte/
 - https://www.business-science.io/learning-python/2018/11/18/data-science-python-cheatsheet.html?utm_source=pocket-app&utm_medium=share
-
 - https://policyviz.com/2018/08/07/dataviz-cheatsheet/?utm_source=pocket-app&utm_medium=share
 - https://www.kdnuggets.com/2018/08/data-visualization-cheatsheet.html?utm_source=pocket-app&utm_medium=share
 - https://hackernoon.com/deep-learning-cheat-sheet-25421411e460?utm_source=pocket-app&utm_medium=share

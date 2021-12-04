@@ -36,6 +36,7 @@
 ### Setup tools
 
 - https://www.reddit.com/r/startups/comments/ibj2lj/stripe_atlas_vs_alternatives/
-- https://www.firstbase.io/
+- https://www.firstbase.io/ (known to work)
 - https://www.startpack.io/
 - https://www.zenbusiness.com/
+- Look for more reference: https://wiki.nikitavoloboev.xyz/business/startups#links
