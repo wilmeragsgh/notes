@@ -86,6 +86,13 @@ df = spark.createDataFrame([Row(a=1, intlist=[1,2,3], mapfield={"a": "b"})])
 df.select(explode(eDF.intlist).alias("anInt")).collect()
 ```
 
+**Return a single string per row in groupby**
+
+```python
+import pyspark.sql.functions as f
+df.groupby("col1").agg(f.concat_ws(", ", f.collect_list(df.col2)))
+```
+
 **Filter rows**
 
 Result will be a spark dataframe
