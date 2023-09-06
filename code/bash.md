@@ -171,6 +171,12 @@ tmux select-pane -t sessionName:1.0
 tmux splitw -h -p 50 -t sessionName:1.0
 ```
 
+**Compress file**
+
+```
+tar -zcvf outputFileName folderToCompress
+```
+
 **unzip file**
 
 ```bash
@@ -206,6 +212,12 @@ sed -n '/^CREATE TABLE/,/GO/p'
 
 ```bash
 openssl rand -base64 32
+```
+
+**Generate base64 encoded for text**
+
+```bash
+echo 'to_encode' | base64
 ```
 
 ## **References**

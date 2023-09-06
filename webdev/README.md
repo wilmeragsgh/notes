@@ -18,6 +18,15 @@ sudo npm install -g n
 sudo n stable
 ```
 
+## Setting a specific version of node
+
+```
+nvm use <version>
+```
+
+[reference](https://github.com/nvm-sh/nvm)
+
+
 ## For a chrome extension
 
 * [https://www.streaver.com/blog/posts/create-web-extension-vue.html](https://www.streaver.com/blog/posts/create-web-extension-vue.html)
@@ -33,4 +42,5 @@ sudo n stable
 * [https://tailwindcss.com/](https://tailwindcss.com/)
 * [https://bulma.io/](https://bulma.io/)
 * [http://dashboards.webkom.co/react/airframe/dashboards/projects](http://dashboards.webkom.co/react/airframe/dashboards/projects)
+* https://stackoverflow.com/questions/45632508/how-to-check-and-change-the-nodejs-version-on-ubuntu#:~:text=You%20can%20check%20your%20current,(version)%20e.g.%20n%204.0.
 

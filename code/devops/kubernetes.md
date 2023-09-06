@@ -61,6 +61,12 @@ sudo apt-get install helm
 minikube start
 ```
 
+**Disconnect from remote cluster**
+
+```bash
+kubectl config use-context minikube
+```
+
 **Delete namespace**
 
 ```bash

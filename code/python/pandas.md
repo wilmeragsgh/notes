@@ -68,6 +68,12 @@ for index, row in df.iterrows():
 df[['col1', 'col2']]
 ```
 
+or by regex pattern
+
+```python
+df.filter(regex=("d.*"))
+```
+
 **Parse datetimes**
 
 ```python
@@ -230,6 +236,11 @@ data.groupby(data.date.dt.year)
 
 ```python
 df.groupby('location')['user'].nunique()
+```
+
+**Collect list in Group by**
+```python
+df.groupby('a')['b'].apply(list).reset_index(name='new')
 ```
 
 **Get normalized values from groupby count**

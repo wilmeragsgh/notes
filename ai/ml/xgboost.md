@@ -174,4 +174,5 @@ Al procesar datos desbalanceados es recomendable que utilizar `scoring='balanced
 * [Code](https://xgboost.readthedocs.io/en/latest/tutorials/model.html) , [Python API Reference](https://xgboost.readthedocs.io/en/latest/python/python_api.html)
 * [Paper](https://arxiv.org/pdf/1603.02754.pdf)
 * [Winning solution for](https://github.com/dmlc/xgboost/tree/master/demo#machine-learning-challenge-winning-solutions)
+* [Some FAQs](https://towardsdatascience.com/20-burning-xgboost-faqs-answered-to-use-the-library-like-a-pro-f8013b8df3e4)
 

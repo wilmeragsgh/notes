@@ -69,6 +69,10 @@ CMD ["python", "myapp.py"]
 
 `docker volume prune`
 
+**Kill all system garbage**
+
+`docker system prune`
+
 **Run container**
 
 ```bash
