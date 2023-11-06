@@ -113,6 +113,12 @@ usermod -aG sudo username
 ls -1R -I [omit_dir]
 ```
 
+**Collect http urls from several csv into a single one**
+
+```bash
+cat urls.html | grep -Eo "(http|https)://[a-zA-Z0-9./?=_%:-]*" | sort -u
+```
+
 **cURL requests**
 
 ```bash
