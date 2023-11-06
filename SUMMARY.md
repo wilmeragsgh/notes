@@ -46,7 +46,7 @@
     * [Requests](code/python/requests.md)
     * [Pandas](code/python/pandas.md)
     * [Elasticsearch](code/python/elasticsearch.md)
-    * [Tensorflow](code/python/tensorflow/README.md)
+    * [Tensorflow](code/python/tensorflow.md)
   * [Git](code/git/README.md)
     * [Gitflow](code/git/gitflow.md)
   * [R](code/r/README.md)

@@ -6,7 +6,7 @@ description: Frequently used code for tensorflow related code snippets
 
 **General steps**
 
-* Create Tensors \(variables\) that are not yet executed/evaluated.
+* Create Tensors (variables) that are not yet executed/evaluated.
 * Write operations between those Tensors.
 * Initialize your Tensors.
 * Create a Session.
@@ -15,7 +15,7 @@ description: Frequently used code for tensorflow related code snippets
 ## One-liners
 
 * `tf.sigmoid`
-* `tf.nn.sigmoid_cross_entropy_with_logits` 
+* `tf.nn.sigmoid_cross_entropy_with_logits`
 * `tf.ones`
 * `tf.zeros_initializer`
 * `tf.contrib.layers.xavier_initializer(seed = 1)`
@@ -82,12 +82,12 @@ print("Test Accuracy:", accuracy.eval({X: X_test, Y: Y_test}))
 
 #### Input
 
-* M: 2d-Tensor with real values \(where we will apply the convolution\)
-* K: Smaller 2d-tensor with real values \(the convolution kernel\)
+* M: 2d-Tensor with real values (where we will apply the convolution)
+* K: Smaller 2d-tensor with real values (the convolution kernel)
 
 #### Process
 
-1. Multiply each entry of the 2d-tensor K with each one on the 2d-tensor M 
+1. Multiply each entry of the 2d-tensor K with each one on the 2d-tensor M
 
 I think they could be affected by the resolution of the images
 
@@ -97,7 +97,7 @@ I think they could be affected by the resolution of the images
 tf.nn.conv2d(X,W, strides = [1,s,s,1], padding = 'SAME')
 ```
 
-> **Use:** Computing convolutions of W kernel over X with a stride over 1st and 4th dimension\(batch dimension ie: one example, and 1 channel\)
+> **Use:** Computing convolutions of W kernel over X with a stride over 1st and 4th dimension(batch dimension ie: one example, and 1 channel)
 
 **max\_pool**
 
@@ -105,7 +105,7 @@ tf.nn.conv2d(X,W, strides = [1,s,s,1], padding = 'SAME')
 tf.nn.max_pool(A, ksize = [1,f,f,1], strides = [1,s,s,1], padding = 'SAME')
 ```
 
-> **Use:** Given an input A it performs a pooling layer with a windown of size \(f,f\), ie usually it takes one example and one channel at a time.
+> **Use:** Given an input A it performs a pooling layer with a windown of size (f,f), ie usually it takes one example and one channel at a time.
 
 **flatten**
 
@@ -113,7 +113,7 @@ tf.nn.max_pool(A, ksize = [1,f,f,1], strides = [1,s,s,1], padding = 'SAME')
 tf.contrib.layers.flatten(P)
 ```
 
-> **Use:** Given an input tensor P it takes each example from batch and generate an 1D array as output For example, receiving a tensor of shape \[batch\_size, width, height, channels\] it would return a tensor of shape = \[batch\_size, width x height x channels\]
+> **Use:** Given an input tensor P it takes each example from batch and generate an 1D array as output For example, receiving a tensor of shape \[batch\_size, width, height, channels] it would return a tensor of shape = \[batch\_size, width x height x channels]
 
 **fully\_connected**
 
@@ -121,7 +121,7 @@ tf.contrib.layers.flatten(P)
 tf.contrib.layers.fully_connected(F, num_outputs)
 ```
 
-> **Use:** Given an input tensor F \(flattened\) it generates an initialized layer of weights in the graph, so they don't need to be initialized. This layers needs to have an additional argument `activation_fn=None` to not apply softmax
+> **Use:** Given an input tensor F (flattened) it generates an initialized layer of weights in the graph, so they don't need to be initialized. This layers needs to have an additional argument `activation_fn=None` to not apply softmax
 
 **Cost computation**
 
@@ -133,7 +133,7 @@ tf.nn.softmax_cross_entropy_with_logits(logits = Z, labels = Y)
 tf.reduce_mean
 ```
 
-> "Logits" are the result of multiplying the weights and adding the biases. Logits are passed through an activation function \(such as a relu\), and the result is called the "activation."
+> "Logits" are the result of multiplying the weights and adding the biases. Logits are passed through an activation function (such as a relu), and the result is called the "activation."
 >
 > Example of functional code for a tf project is at docs/career/convnet\_course
 
@@ -246,10 +246,10 @@ with tpu_strategy.scope():
 
 **References**
 
-- https://www.tensorflow.org/tfx/data_validation/get_started
-- https://blog.tensorflow.org/2018/09/introducing-tensorflow-data-validation.html
-- https://colab.research.google.com/github/tensorflow/tfx/blob/master/docs/tutorials/data_validation/tfdv_basic.ipynb#scrollTo=mPt5BHTwy_0F
-- https://www.tensorflow.org/tfx/data_validation/api_docs/python/tfdv
+* https://www.tensorflow.org/tfx/data\_validation/get\_started
+* https://blog.tensorflow.org/2018/09/introducing-tensorflow-data-validation.html
+* https://colab.research.google.com/github/tensorflow/tfx/blob/master/docs/tutorials/data\_validation/tfdv\_basic.ipynb#scrollTo=mPt5BHTwy\_0F
+* https://www.tensorflow.org/tfx/data\_validation/api\_docs/python/tfdv
 
 **Import**
 
@@ -381,8 +381,6 @@ schema_file = os.path.join(OUTPUT_DIR, 'schema.pbtxt')
 tfdv.write_schema_text(schema, schema_file)
 ```
 
-
-
 **Data slicing**
 
 ```python
@@ -427,8 +425,6 @@ tfdv.visualize_statistics(
     rhs_name=female_stats_name
 )
 ```
-
-
 
 **Generate tensorflow data directory**
 
@@ -504,7 +500,7 @@ def text_dataframe_to_tf_dir(df: pd.DataFrame, target_dir: str, label_col_ix: in
                     fl.write(obs)
 ```
 
-The snippet above is meant to be loaded with [keras](https://www.tensorflow.org/api_docs/python/tf/keras/utils/text_dataset_from_directory) as follows:
+The snippet above is meant to be loaded with [keras](https://www.tensorflow.org/api\_docs/python/tf/keras/utils/text\_dataset\_from\_directory) as follows:
 
 ```python
 tf.keras.utils.text_dataset_from_directory(
@@ -593,7 +589,7 @@ from tfx.orchestration.experimental.interactive.interactive_context import Inter
 context = InteractiveContext(pipeline_root=_pipeline_root)
 ```
 
-read csv file 
+read csv file
 
 `_data_root` can be csv, tf.Record and BigQuery.
 
@@ -838,13 +834,11 @@ This execution will produce (in `.component.outputs`):
 * `transformed_examples` points to the preprocessed training and evaluation data.
 * `updated_analyzer_cache` are stored calculations from previous runs.
 
-
-
 `transform_graph` for example would have (in `transform.outputs['transform_graph'].get()[0].uri`):
 
 * The `metadata` subdirectory contains the schema of the original data.
-* The `transformed_metadata` subdirectory contains the schema of the preprocessed data. 
-* The `transform_fn` subdirectory contains the actual preprocessing graph. 
+* The `transformed_metadata` subdirectory contains the schema of the preprocessed data.
+* The `transform_fn` subdirectory contains the actual preprocessing graph.
 
 A sample of transformed data can be retrieved with
 
@@ -865,8 +859,6 @@ sample_records_xf = get_records(transformed_dataset, 3)
 pp.pprint(sample_records_xf)
 ```
 
-
-
 **References**
 
-- https://www.tensorflow.org/api_docs/python/tf/
+* https://www.tensorflow.org/api\_docs/python/tf/

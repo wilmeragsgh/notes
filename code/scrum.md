@@ -6,31 +6,31 @@ description: Scrum guide
 
 > **Note:** Have the same definition of Done
 >
-> ## Values
+> ### Values
 >
 > * Commitment
 > * Courage
 > * Focus
-> * Openness 
+> * Openness
 > * Respect
 > * Transparency
 
 ## Roles
 
-* Product Owner \(1 ppl\):
+* Product Owner (1 ppl):
   * Clearly expressing Product Backlog items;
   * Ordering the items in the Product Backlog to best achieve goals and missions;
   * Optimizing the value of the work the Development Team performs;
   * Ensuring that the Product Backlog is visible, transparent, and clear to all, and shows what the Scrum Team will work on next; and,
   * Ensuring the Development Team understands items in the Product Backlog to the level needed.
-* Development Team \(2 &lt; x &lt; 10 ppl\):
+* Development Team (2 < x < 10 ppl):
   * Clearly expressing Product Backlog items;
   * Ordering the items in the Product Backlog to best achieve goals and missions;
   * Optimizing the value of the work the Development Team performs;
   * Ensuring that the Product Backlog is visible, transparent, and clear to all, and shows what the Scrum Team will work on next; and,
   * Ensuring the Development Team understands items in the Product Backlog to the level needed.
 * Scrum Master:
-  * The Scrum Master’s job is to work with the Scrum Team and the organization to increase the transparency of the artifacts. 
+  * The Scrum Master’s job is to work with the Scrum Team and the organization to increase the transparency of the artifacts.
   * To the Product Owner:
     * Ensuring that goals, scope, and product domain are understood by everyone on the Scrum Team as well as possible;
     * Finding techniques for effective Product Backlog management;
@@ -54,26 +54,26 @@ description: Scrum guide
 
 ## Events
 
-* Sprint\(a time-box, max one month, during which a “Done”, useable, and potentially releasable product Increment is created\):
+* Sprint(a time-box, max one month, during which a “Done”, useable, and potentially releasable product Increment is created):
   * No changes are made that would endanger the Sprint Goal;
   * Quality goals do not decrease; and,
   * Scope may be clarified and re-negotiated between the Product Owner and Development Team as more is learned.
-  * A Sprint would be cancelled if the Sprint Goal becomes obsolete \(Uncommon and traumatic\).
+  * A Sprint would be cancelled if the Sprint Goal becomes obsolete (Uncommon and traumatic).
   * Main concerns:
     * What can be delivered in the Increment resulting from the upcoming Sprint?
     * How will the work needed to deliver the Increment be achieved?
-  * Development Team can assess what it can accomplish over the upcoming Sprint \(from the backlog\).
+  * Development Team can assess what it can accomplish over the upcoming Sprint (from the backlog).
   * Sprint Goal should be discussed by the scrum team.
   * Work should be decompose to units of one day or less.
-* Daily \(15minutes\) Responsible Scrum Master:
+* Daily (15minutes) Responsible Scrum Master:
   * Plans next 24hr work.
   * Track progress.
   * Guide:
     * What did i do yesterday towards the sprint goal.
     * What will i do today towards the sprint goal.
     * Any impediments towards sprint goal.
-* Sprint review \(max 4hr results in a reviewed product backlog\) Responsible Scrum Master:
-  * Detail what is done 
+* Sprint review (max 4hr results in a reviewed product backlog) Responsible Scrum Master:
+  * Detail what is done
   * What is not
   * Detail insights, problems and solutions.
   * Check the increment
@@ -85,16 +85,15 @@ description: Scrum guide
 
 ## Artifacts
 
-* Product backlog \(Product Owner\):
+* Product backlog (Product Owner):
   * Ordered list of every needed item in the product
   * Each item:
     * Description
-    * Order \(Higher the sooner is going to be done\)
-    * Estimate \(By the people that is going to perform the work\)
-    * Value \(Sum up sprint values for track performance\)
+    * Order (Higher the sooner is going to be done)
+    * Estimate (By the people that is going to perform the work)
+    * Value (Sum up sprint values for track performance)
     * Test descriptions
 * Sprint backlog:
   * What is going to be done in the sprint.
   * It includes at least one high priority process improvement identified in the previous Retrospective meeting.
   * As new work is required, the Development Team adds it to the Sprint Backlog.
-
