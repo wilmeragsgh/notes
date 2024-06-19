@@ -212,6 +212,11 @@ def test(x,y,z):
 test(**testDict)
 ```
 
+**Merge dictionaries**
+```python
+data = {**data1, **data2, **data3}
+```
+
 **Store expressions in dictionaries**
 
 ```python

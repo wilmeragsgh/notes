@@ -51,6 +51,15 @@ with tf.Session() as sess:
 # if not used with 'with' it is necessary to do sess.close()
 ```
 
+**Clean memory from device**
+
+```python
+# pip install numba 
+from numba import cuda 
+device = cuda.get_current_device()
+device.reset()
+```
+
 **Computing cost for sigmoid**
 
 ```python
@@ -862,3 +871,4 @@ pp.pprint(sample_records_xf)
 **References**
 
 * https://www.tensorflow.org/api\_docs/python/tf/
+* https://huggingface.co/docs/datasets/v1.11.0/splits.html

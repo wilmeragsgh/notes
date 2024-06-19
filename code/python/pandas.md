@@ -164,6 +164,11 @@ df.loc[~df['column_name'].isin(some_values)]
 df = df.set_index(['colname'])
 ```
 
+**Order columns lexicographically**
+```python
+df = df.reindex(sorted(df.columns), axis=1)
+```
+
 **Remove duplicates** (distinct)
 
 ```python
